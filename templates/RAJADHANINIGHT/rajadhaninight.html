@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% block title %}Rajdhani Night{% endblock  %}
+{%block contant%}
+{% load static  %}
+<style>
+    .wallet_nav {
+        padding: 0 30px;
+        width: auto;
+        height: 70px;
+        display: flex;
+        background-color: cornflowerblue;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .wallet_nav .heading {
+        margin-left: 50px;
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    .btn_row {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .btn_row button {
+        border: none;
+        background: none;
+    }
+
+    .circle {
+        width: 130px;
+        height: 130px;
+        display: grid;
+        place-items: center;
+        border-radius: 400px;
+        background-color: rgb(0, 51, 255);
+    }
+
+    .octagonWrap {
+        width: 100px;
+        height: 100px;
+        float: left;
+        position: relative;
+    }
+
+    .octagon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        transform: rotate(22.5deg);
+        left: 0;
+        overflow: hidden;
+    }
+
+    .octagon:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: rotate(45deg);
+        background: radial-gradient(circle, rgba(148, 0, 62, 1) 59%, rgba(123, 0, 5, 1) 59%);
+        content: '';
+    }
+
+    .octagonWrap img {
+        width: 50px;
+        height: 50px;
+        background-color:;
+        z-index: 1;
+        position: relative;
+        margin-left:25px;
+    }
+
+    .octagonWrap p {
+        margin: 0;
+        position: relative;
+        z-index: 1;
+        margin-left:30px;
+    }
+
+    .octagonWrap p span {
+        color: #fff;
+        
+    }
+</style>
+
+<nav class="wallet_nav">
+    <div class="heading">RAJDHANI NIGHT</div>
+</nav>
+<div class="btn_row">
+    <a href="{%url 'rajdhaninightsingledigit'%}">
+        <div class="circle">
+            <div class='octagonWrap'>
+                <div class='octagon'>
+                </div>
+                <img src="{%static 'images/single_digit.svg'%}" alt="">
+                <p>Single<br><span>Digit</span></p>
+            </div>
+        </div>
+    </a>
+    <a href="{%url 'rajdhaninightjodidigit'%}">
+        <div class="circle">
+            <div class='octagonWrap'>
+                <div class='octagon'>
+                </div>
+                <img src="{%static 'images/jodi_digit.svg'%}" alt="">
+                <p>Jodi<br><span>Digit</span></p>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="btn_row">
+    <a href="{%url 'rajdhaninightsinglepana'%}">
+        <div class="circle">
+            <div class='octagonWrap'>
+                <div class='octagon'>
+                </div>
+                <img src="{%static 'images/single_panna.svg'%}"  alt="">
+                <p>Single<br><span>Pana</span></p>
+            </div>
+        </div>
+    </a>
+    <a href="{%url 'rajdhaninightdoublepana'%}">
+        <div class="circle">
+            <div class='octagonWrap'>
+                <div class='octagon'>
+                </div>
+                <img src="{%static 'images/full_sangam.svg'%}"  alt="">
+                <p>Double<br><span>Pana</span></p>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="btn_row">
+    <a href="{%url 'rajdhaninighttriplepana'%}">
+        <div class="circle">
+            <div class='octagonWrap'>
+                <div class='octagon'>
+                </div>
+                <img src="{%static 'images/poker1.svg'%}"  alt="">
+                <p>Triple<br><span>Pana</span></p>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="btn_row">
+    <a href="{%url 'rajdhaninighthalfsangam'%}">
+        <div class="circle">
+            <div class='octagonWrap'>
+                <div class='octagon'>
+                </div>
+                <img src="{%static 'images/half_sangam.svg'%}"  alt="">
+                <p>Half<br><span>Sangam</span></p>
+            </div>
+        </div>
+    </a>
+        <a href="{%url 'rajdhaninightfullsangam'%}">
+        <div class="circle">
+            <div class='octagonWrap'>
+                <div class='octagon'>
+                </div>
+                <img src="{%static 'images/poker1.svg'%}"  alt="">
+                <p>Full<br><span>Sangam</span></p>
+            </div>
+        </div>
+    </a>
+</div>
+{% endblock contant%}

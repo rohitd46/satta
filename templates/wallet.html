@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}My Wallet{% endblock  %}
+{% block contant  %}
+{% load static %}
+<style>
+    .myDiv {
+        border: 5px outset red;
+        background-color: lightblue;    
+        text-align: center;
+        margin:25px;
+       
+      }
+    .myDiv p{
+        font-size:25px;
+        font-family:Fantasy;
+      }
+    .button{
+        margin:20px ;
+        
+      }
+      
+      .wallet_nav {
+          padding: 0 30px;
+          width: auto;
+          height: 70px;
+          display: flex;
+          background-color: cornflowerblue;
+          align-items: center;
+          justify-content: space-between;
+      }
+      
+      .wallet_nav .heading {
+          margin-left: 50px;
+          font-weight: 600;
+          font-size: 20px;
+      }
+      .wallet_nav a{
+        border: none;
+        background:none;
+      }
+      .wallet_nav button img{
+        width:  40px;
+        height: 40px;
+      }
+
+      
+      </style>
+      <nav class="wallet_nav">
+        <div class="heading">Your Wallet</div>
+        <a href="{%url 'wallet'%}">
+          <img src="{% static 'images/wallet.svg'%}">
+        </a>
+      </nav>
+      <div class="myDiv">
+        <h2>Total Points</h2>
+        <p>5<br>Points</p>
+      </div>
+      
+      <div class="button">
+        <a href="{%url 'addpoint'%}"  class="btn btn-secondary  btn-lg btn-block fa fa-add">Add Points</a>
+      </div>
+
+      <div class="button">
+        <a href="{%url 'addpoint'%}"  class="btn btn-secondary  btn-lg btn-block fa fa-add">Withdraw Points</a>
+      </div>
+      <div class="button">
+        <a href="{%url 'addpoint'%}"  class="btn btn-secondary  btn-lg btn-block fa fa-add">Transfer Points</a>
+      </div>
+
+      <div class="myDiv">
+        <h2>Total Points</h2>
+        <p>5<br>Points</p>
+      </div>
+{% endblock contant %}

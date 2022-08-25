@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block title %}Games rates{% endblock  %}
+{%block contant%}
+<style>
+   
+
+    .first {
+        position:relative;
+        
+        left:50px;
+        margin:20px;
+        width: 33%;
+        display: inline-block;
+        background-color: green;
+        border-radius:20px;
+        text-align:center;
+    }
+
+    .second {
+        position:relative;
+       
+        left:50px;
+        margin:20px;
+        width: 33%;
+        display: inline-block;
+        background-color: green;
+        border-radius:20px;
+        text-align:center;
+    }
+
+    .third {
+        position:relative;
+       
+        left:50px;
+        margin:20px;
+        width: 33%;
+        display: inline-block;
+        background-color: green;
+        border-radius:20px;
+        text-align:center;
+    }
+
+    @media screen and (max-width: 500px) {
+
+        .first,
+        .second,
+        .third {
+            width: 50%;
+        }
+    }
+    .wallet_nav {
+        padding: 0 30px;
+        width: auto;
+        height: 70px;
+        display: flex;
+        background-color: cornflowerblue;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .wallet_nav .heading {
+        margin-left: 50px;
+        font-weight: 600;
+        font-size: 20px;
+    }
+</style>
+<nav class="wallet_nav">
+    <div class="heading">Games Rate</div>
+  </nav>
+<div class="winning_container">
+
+
+<div class="first">
+    <p>First block</p>
+</div>
+<div class="second">
+    <p>Second block</p>
+</div>
+<div class="third">
+    <p>Third block </p>
+</div>
+<div class="first">
+    <p>First block</p>
+</div>
+</div>
+{% endblock contant %}

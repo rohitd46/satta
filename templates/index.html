@@ -1,0 +1,482 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block contant %}
+{% load static %}
+<nav class="wallet_nav">
+  {%if user.is_authenticated%}
+  <div class="heading">Hello {{user.first_name}}</div>
+  {%endif%}
+  <div class="btnleft">
+    <a href="{%url 'starline'%}" class="btn">Starline</a>
+  </div>
+  <div class="btnright">
+    <a href="{%url 'galidiswar'%}" class="btn">Gali Disawar</a>
+  </div>
+  <a href="{%url 'wallet'%}">
+    <img src="{% static 'images/wallet.svg'%}">
+  </a>
+</nav>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="w-100" height=500 src="/media/image/wp4369965.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class=" w-100 " height=500 src="https://sattamatkavip.net/public/images/logo.gif" alt="Second slide">
+    </div>
+    <a class="carousel-control-prev" 0 href="#carouselExampleControls" role="a href=" #"" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="a href=" #"" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .wallet_nav {
+      padding: 0 30px;
+      width: auto;
+      height: 70px;
+      display: flex;
+      background-color: cornflowerblue;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .wallet_nav .heading {
+      margin-left: 30px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .wallet_nav a {
+      border: none;
+      background: none;
+    }
+
+    .wallet_nav button img {
+      width: 40px;
+      height: 40px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .left {
+      border: 2px solid red;
+      float: left;
+      width: 33%;
+      /* The width is 20%, by default */
+    }
+
+    .btn_section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 8px 8px 8px ;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      float: left;
+
+    }
+
+    .btn {
+      background-color: crimson;
+      padding: 6px;
+      border: 5px solid blue;
+      cursor: pointer;
+      font-size: 13px;
+      border-radius: 30px
+    }
+
+    .my {
+      background-color: crimson;
+      padding: 6px;
+      border: 5px solid blue;
+      float: Right;
+      cursor: pointer;
+      font-size: 13px;
+      border-radius: 30px
+    }
+
+
+    .main {
+      border: 2px solid red;
+      float: left;
+      width: 33%;
+      /* The width is 60%, by default */
+    }
+
+    .right {
+      border: 2px solid red;
+      float: left;
+      width: 33%;
+      /* The width is 20%, by default */
+    }
+
+    /* Use a media query to add a break point at 800px: */
+    @media screen and (max-width: 800px) {
+
+      .left,
+      .main,
+      .right {
+        width: 100%;
+        /* The width is 100%, when the viewport is 800px or smaller */
+      }
+    }
+
+
+    /* ---------------left-button-btn----------------- */
+
+    .left-button-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #0f0;
+    }
+
+    .share {
+      position: fixed;
+      bottom: 20px;
+      display: grid;
+      place-items: center;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #0f0;
+    }
+
+    .connect_dropdown {
+      position: absolute;
+      display: none;
+      z-index: 1;
+      width: 200px;
+      bottom: 60px;
+      height: 120px;
+      border: 1px solid #000;
+      padding: 0 10px;
+      background-color: #fff;
+      border-radius: 12px;
+    }
+
+    .connect_dropdown .links:nth-child(1),
+    .connect_dropdown .links:nth-child(2) {
+      border-bottom: 1px solid #000;
+    }
+
+    .connect_dropdown .links {
+      width: 100%;
+      display: flex;
+      padding: 0 10px;
+      align-items: center;
+      height: calc(100%/3);
+    }
+
+    .active {
+      display: block;
+    }
+
+    .base_Timing {
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 30px;
+      background-color: #0ebed5;
+    }
+
+    .base_Timing span {
+      font-size: 13px;
+    }
+  </style>
+  <div class="left text-center">
+    <h3>MILAN MORNING</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'milan_morning'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10  am</span>
+    </div>
+  </div>
+
+  <div class="main text-center">
+    <h3>WELCOME MORNING</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'welcome_morning'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+
+  <div class="right text-center">
+    <h3>KALYAN MORNING</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'kalyan_morning'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+  <div class="left text-center">
+    <h3>MADHUR MORNING</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'madhur_morning'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+
+  <div class="main text-center">
+    <h3>SRIDEVI</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'sridevi'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+
+  <div class="right text-center">
+    <h3>TIME BAZAR</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'timebazar'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+  <div class="left text-center">
+    <h3>MADHUR DAY</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'madhurday'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+
+  <div class="main text-center">
+    <h3>NEW KALYAN</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'newkalyan'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+  <div class="right text-center">
+    <h3>MILAN DAY</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'milanday'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+
+  <div class="right text-center">
+    <h3>RAJDHANI DAY</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'rajdhaniday'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+  <div class="left text-center">
+    <h3>SUPREME DAY</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'supremeday'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+  <div class="right text-center">
+    <h3>KALYAN</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'kalyan'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+
+  <div class="right text-center">
+    <h3>SRIDEVI NIGHT</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'sridevinight'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+  <div class="right text-center">
+    <h3>MADHUR NIGHT</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'madhurnight'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+  <div class="right text-center">
+    <h3>NEW MAIN MUMBAI</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'newmainmumbai'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+  <div class="right text-center">
+    <h3>SUPREME NIGHT</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'supremenight'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+  <div class="right text-center">
+    <h3>MILAN NIGHT</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'milannight'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+  <div class="right text-center">
+    <h3>KALYAN NIGHT</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'kalyannight'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+  <div class="right text-center">
+    <h3>RAJDHANI NIGHT</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'rajdhaninight'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+  <div class="right text-center">
+    <h3>MAIN BAZAR</h3>
+    <p>XXX-XX-XXX</P>
+    <div class="btn_section">
+      <a href="#" class="btn">Chart</a>
+      <a href="{%url 'mainbazar'%}" class="my">Open</a>
+    </div>
+    <div class="base_Timing">
+      <span>Open Time : 10:10 am</span>
+      <span>Close Time : 10:10 am</span>
+    </div>
+  </div>
+
+  <div class="left-button-btn">
+    <div class="share" id="btn">
+      <img src="{% static 'images/phone1.svg' %}">
+    </div>
+    <div class="connect_dropdown" id="connect_dropdown">
+      <div class="links">
+        <img src="{% static 'images/whatsapp.svg' %}">
+        <div>Whatsapp</div>
+      </div>
+      <div class="links">
+        <img src="{% static 'images/telegram-logo1.svg' %}">
+        <div>Instagram</div>
+      </div>
+      <div class="links">
+        <img src="{% static 'images/facebook.svg' %}">
+        <div>Facebook</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    let togglebtn = document.getElementById("btn");
+    let dropup = document.getElementById("connect_dropdown");
+    togglebtn.addEventListener("click", function () {
+      dropup.classList.toggle("active");
+    });
+  </script>
+
+
+
+
+
+  {% endblock contant %}

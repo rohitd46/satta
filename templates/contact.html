@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block title %}Contact Us{% endblock  %}
+{%block contant%}
+<style>
+   
+
+    .first {
+        position:relative;
+        
+        left:50px;
+        margin:20px;
+        width: 33%;
+        display: inline-block;
+        background-color: green;
+        border-radius:20px;
+        
+        text-align:center;
+    }
+    pre{
+       margin:10px;
+
+    }
+
+    .second {
+        position:relative;
+       
+        left:50px;
+        margin:20px;
+        width: 33%;
+        display: inline-block;
+        background-color: green;
+        border-radius:20px;
+        text-align:center;
+    }
+
+    .third {
+        position:relative;
+       
+        left:50px;
+        margin:20px;
+        width: 33%;
+        display: inline-block;
+        background-color: green;
+        border-radius:20px;
+        text-align:center;
+    }
+
+    @media screen and (max-width: 500px) {
+
+        .first,
+        .second,
+        .third 
+         {
+            width: 70%;
+            left: 30px;
+        }
+    }
+    .wallet_nav {
+        padding: 0 30px;
+        width: auto;
+        height: 70px;
+        display: flex;
+        background-color: cornflowerblue;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .wallet_nav .heading {
+        margin-left: 50px;
+        font-weight: 600;
+        font-size: 20px;
+    }
+    
+</style>
+<nav class="wallet_nav">
+    <div class="heading">Contact Us</div>
+  
+  </nav>
+<div class="winning_container">
+
+
+<div class="first">
+    <pre>Mobile No.                                        8529686120</pre>
+</div>
+<div class="second">
+    <pre>Whatapp No.                                       8529686120</pre>
+</div>
+<div class="third">
+    <pre>Email.                                            8529686120</pre>
+</div>
+
+</div>
+{% endblock contant %}
