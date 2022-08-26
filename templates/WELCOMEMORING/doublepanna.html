@@ -103,6 +103,7 @@
 </nav>
 <div class="container">
   <form method='post' action="{%url 'welcomemorningdoublepana'%}">
+    {% csrf_token %}
     <div class="row">
       <div class="col-25">
         <label for="fname">Date</label>

@@ -1,6 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class POINTS(models.Model):
+   user=models.ForeignKey(User,on_delete=models.CASCADE)
+   points=models.IntegerField(default=5)
+
 class Milan_MorningSingleDigit(models.Model):
      user = models.ForeignKey(User,on_delete=models.CASCADE)
      date=models.DateField()

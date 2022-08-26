@@ -1,9 +1,12 @@
 from django.urls import path
+from django.contrib import admin
 from satta_king import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-
+admin.site.site_header="Online Satta King"
+admin.site.site_title="Online Satta king Page"
+admin.site.index_title="Welcome To this Portal"
 urlpatterns = [
       path('', views.Login,name='login'),
       path('signup', views.SignUp,name='signup'),

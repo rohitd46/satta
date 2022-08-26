@@ -173,6 +173,15 @@
       display: inline-block;
 
     }
+    .sidebar-footer {
+      text-align: left;
+      font-size: 10px;
+      color: white;
+      padding-top:700px;
+      width: 100%;
+      display: inline-block;
+
+    }
 
     .sidebar-brand {
       height: 65px;
@@ -393,7 +402,11 @@
         <li><a href="{%url 'ChangePassword'%}"><i class="fa fa-fw fa-lock"></i>Change Password</a></li>
         <li><a href="{%url 'logout'%}"><i class="fa fa-fw fa-power-off"></i>Logout</a></li>
       </ul>
+      <div class="sidebar-footer">
+        Made By Device Doctor Ind Pvt.Ltd.
+      </div>
     </nav>
+   
     <!-- /#sidebar-wrapper -->
     <!-- Page Content -->
     <div id="page-content-wrapper">
@@ -402,19 +415,20 @@
         <span class="hamb-middle"></span>
         <span class="hamb-bottom"></span>
       </button>
+      
       <div class="container1">
         {% block contant %}
         {% endblock contant %}
       </div>
     </div>
+  
     <!-- /#page-content-wrapper -->
   </div>
   </div>
   </div>
   </div>
   <!-- /#wrapper -->
-
-
+ 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -427,6 +441,8 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="{%static 'nav.js'%}"></script>
+ 
+
   </body>
 
 </html>

@@ -107,7 +107,10 @@ a:hover{
         <input type="text" placeholder="Name" name="first_name" required maxlength="25">
       </div>
       <div class="box">
-        <input type="phonenumber" placeholder="Phone Number" name="username" required maxlength="25">
+        <input type="phonenumber" placeholder="Phone Number" name="username" required maxlength="10">
+      </div>
+      <div class="box">
+        <input type="email" placeholder="Enter Email" name="email" required maxlength="50">
       </div>
       <div class="box">
         <input type="password" placeholder="Password" name='password'	required maxlength="15">
@@ -117,6 +120,7 @@ a:hover{
       </div>
       <input type="submit" class="btn" value="Create Account">
     </form>
+    <a href="{%url 'login'%}" class="b1">Already Have Account</a>
     
    
     

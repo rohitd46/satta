@@ -3,6 +3,7 @@ from django.contrib.auth.models import User,auth
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from .models import *
+from django.core.mail import send_mail
 
 def Login(request):
     if request.method == "POST":
@@ -24,14 +25,24 @@ def SignUp(request):
     if request.method =='POST':
         name=request.POST.get('first_name')
         phonenumber=request.POST.get('username')
+        email=request.POST.get('email')
         password=request.POST.get('password')
         repassword=request.POST.get('repassword')
         if password==repassword:
-            if User.objects.filter(username=phonenumber).exists():
-                print("username taken")
+            if User.objects.filter(username=phonenumber ).exists():
+                print("Phone Number Already Exists")
+            elif User.objects.filter(email=email).exists():
+                print("Email Already Exists")
             else:
-                user=User.objects.create_user(username=phonenumber,first_name=name,password=password)
+                user=User.objects.create_user(username=phonenumber,first_name=name,email=email,password=password)
                 user.save()
+                send_mail(
+                    'Account Create',
+                    f'Welcome {user.first_name} to Online Satta King.Your Account Has Create Secessfully',
+                    'onlinesattaking83@gmail.com',
+                    [email],
+                    fail_silently=False,
+                    )
                 print("user create")
                 return redirect('home')
         else:

@@ -99,6 +99,7 @@
 </nav>
 <div class="container">
   <form  method='post' action="{%url 'welcomemorningfullsangam'%}">
+    {% csrf_token %}
     <div class="row">
       <div class="col-25">
         <label for="fname">Date</label>
