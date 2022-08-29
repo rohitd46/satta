@@ -17,4 +17,5 @@ admin.site.register(Welcome_MorningDoublePana)
 admin.site.register(Welcome_MorningTriplePana)
 admin.site.register(Welcome_MorningHalfSangam)
 admin.site.register(Welcome_MorningFullSangam)
+admin.site.register(POINTS)
 

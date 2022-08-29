@@ -1,9 +1,15 @@
+from http import client
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from .models import *
+import razorpay
 from django.core.mail import send_mail
+
+
+
+
 
 def Login(request):
     if request.method == "POST":
@@ -36,9 +42,12 @@ def SignUp(request):
             else:
                 user=User.objects.create_user(username=phonenumber,first_name=name,email=email,password=password)
                 user.save()
+                points=request.POST.get('points')
+                userpoint=POINTS(points=points,user=user)
+                userpoint.save()
                 send_mail(
                     'Account Create',
-                    f'Welcome {user.first_name} to Online Satta King.Your Account Has Create Secessfully',
+                    f'Welcome {user.first_name} to Online Satta King.Your Account Has Create Secessfully.Your Joinning Bounus {userpoint.points} Points Credit in Your Account',
                     'onlinesattaking83@gmail.com',
                     [email],
                     fail_silently=False,
@@ -58,7 +67,8 @@ def Home(request):
     return render(request,'index.html')
 
 def Wallet(request):
-    return render (request,'wallet.html')
+    point=POINTS.objects.filter(user=request.user)
+    return render (request,'wallet.html',{"point":point})
 
 def Bank(request):
     return render (request,'manage_bank.html')
@@ -76,12 +86,39 @@ def Conatct(request):
     return render (request,'contact.html')
 
 def ChangePassword(request):
+    if request.method=="POST":
+        password=request.POST.get('oldpassword')
+        newpassword=request.POST.get('newpassword')
+        cpassword=request.POST.get('cpassword')
+        if newpassword==cpassword:
+            password=newpassword
+            user=user.request(password=password)
+            user.save()
+        else:
+            print('password worng')
+        
     return render (request,'change_password.html')
 
 def HowToPlay(request):
     return redirect('https://www.youtube.com')
 
 def ADDPOINT(request):
+    if request.method=="POST":
+        user=request.user
+        amount=int(request.POST.get('amount'))*100
+        
+     
+        client=razorpay.Client(auth=("rzp_test_11LbVMWfaJMbGK" ,"peosxgM6VLD2rdnWljA0lgU9"))
+        payment=client.order.create({'amount' :amount,'currency': 'INR','payment_capture':'1'})
+        payment_id=payment['id']
+        print(payment)
+        context={
+            'amount':amount,
+            'order_id':payment_id
+        }
+        addpoint=POINTS(user=user,points=amount)
+        addpoint.save()
+        return render (request,'add_point.html',{'context':context})
     return render (request,'add_point.html')
 
 def STARLINE(request):

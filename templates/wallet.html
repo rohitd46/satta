@@ -53,7 +53,10 @@
       </nav>
       <div class="myDiv">
         <h2>Total Points</h2>
-        <p>5<br>Points</p>
+        {%for p in point%}
+        <p>{{ p.points }}</p>
+        {% endfor %} 
+        <p>Points</p>
       </div>
       
       <div class="button">
