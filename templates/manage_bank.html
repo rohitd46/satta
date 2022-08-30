@@ -89,32 +89,41 @@
       <div class="heading">Manage Bank</div>
   </nav>
     <div class="container">
-      <form action="/action_page.php">
+      <form method="post" action="{%url 'bank'%}">
+        {% csrf_token %}
         <div class="row">
           <div class="col-25">
-            <label for="fname">Google Pay Number</label>
+            <label >Google Pay Number</label>
           </div>
           <div class="col-75">
-            <input type="text" id="fname" name="p_pay" placeholder="Google Pay Number">
+            <input type="text"  name="GooglePayNumber" value="{{bank.GooglePayNumber}}" placeholder="Google Pay Number" required maxlength="10">
           </div>
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="lname">Phone Pay Number</label>
+            <label >Phone Pay Number</label>
           </div>
           <div class="col-75">
-            <input type="text" id="lname" name="p_pay" placeholder="Phone Pay Number">
+            <input type="text" name="PhonePayNumber" value="{{user.PhonePayNumber}}" placeholder="Phone Pay Number" required maxlength="10">
           </div>
           <div class="col-25">
-            <label for="lname">Paytm Number</label>
+            <label >Paytm Number</label>
           </div>
           <div class="col-75">
-            <input type="text" id="lname" name="paytm" placeholder="Paytm Number">
+            <input type="text" name="PayTmNUmber" value="{{user.PayTmNUmber}}" placeholder="Paytm Number" required maxlength="10">
           </div>
         </div>
         <div class="row">
           <input type="submit" value="Submit">
         </div>
       </form>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+    
+    {% for msg in messages%}
+    swal('{{msg}}');
+    {% endfor %}
+ 
+  </script>
     </div>
 {% endblock contant %}

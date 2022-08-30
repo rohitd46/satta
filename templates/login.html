@@ -115,6 +115,14 @@ a:hover{
     <a href="{%url 'signup'%}" class="b2">Create Account</a>
     
   </div>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+    
+    {% for msg in messages%}
+    swal('{{msg}}');
+    {% endfor %}
+ 
+  </script>
 </body>
 </html>
 <!--Code Belong To ItsDekuSenpai-->

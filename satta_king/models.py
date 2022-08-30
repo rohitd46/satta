@@ -7,6 +7,15 @@ class POINTS(models.Model):
    
    def __str__(self):
         return self.user.first_name 
+     
+class MANAGEBANK(models.Model):
+   GooglePayNumber=models.CharField(max_length=10)
+   PhonePayNumber=models.CharField(max_length=10)
+   PayTmNUmber=models.CharField(max_length=10)
+   user=models.OneToOneField(User,on_delete=models.CASCADE)
+   
+   def __str__(self):
+        return self.user.first_name
 
 class Milan_MorningSingleDigit(models.Model):
      user = models.ForeignKey(User,on_delete=models.CASCADE)

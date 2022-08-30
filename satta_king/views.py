@@ -6,6 +6,7 @@ from datetime import datetime
 from .models import *
 import razorpay
 from django.core.mail import send_mail
+from django.contrib import messages
 
 
 
@@ -22,7 +23,7 @@ def Login(request):
             auth.login(request,user)
             return redirect('home')
         else:
-            print("invalid crensical")
+            messages.info(request,"Invalid Username/Password")
             return redirect("login")
     else:   
         return render(request,'login.html')
@@ -36,9 +37,11 @@ def SignUp(request):
         repassword=request.POST.get('repassword')
         if password==repassword:
             if User.objects.filter(username=phonenumber ).exists():
-                print("Phone Number Already Exists")
+                messages.info(request,"Username Already Exists.")
+                return redirect('signup')
             elif User.objects.filter(email=email).exists():
-                print("Email Already Exists")
+                messages.info(request,"Email Already Exists.")
+                return redirect('signup')
             else:
                 user=User.objects.create_user(username=phonenumber,first_name=name,email=email,password=password)
                 user.save()
@@ -55,7 +58,8 @@ def SignUp(request):
                 print("user create")
                 return redirect('home')
         else:
-            print("password mismatch")
+            messages.info(request,"password mismatch")
+            return redirect('signup')
     return render(request,'signup.html')
 
 def logout(request):
@@ -71,6 +75,17 @@ def Wallet(request):
     return render (request,'wallet.html',{"point":point})
 
 def Bank(request):
+    bank=MANAGEBANK.objects.get(id=request.GooglePayNumber)
+    print(bank)
+    if request.method == "POST":
+        user=request.user
+        GooglePayNumber=request.POST.get('GooglePayNumber')
+        PhonePayNumber=request.POST.get('PhonePayNumber')
+        PayTmNUmber=request.POST.get('PayTmNUmber')
+        addbank=MANAGEBANK(user=user,GooglePayNumber=GooglePayNumber,PhonePayNumber=PhonePayNumber,PayTmNUmber=PayTmNUmber)
+        addbank.save()
+        messages.info(request,"All Details Are save")
+        
     return render (request,'manage_bank.html')
 
 def Winning(request):
@@ -106,7 +121,7 @@ def ADDPOINT(request):
     if request.method=="POST":
         user=request.user
         amount=int(request.POST.get('amount'))*100
-        
+        print(amount)
      
         client=razorpay.Client(auth=("rzp_test_11LbVMWfaJMbGK" ,"peosxgM6VLD2rdnWljA0lgU9"))
         payment=client.order.create({'amount' :amount,'currency': 'INR','payment_capture':'1'})
@@ -118,7 +133,8 @@ def ADDPOINT(request):
         }
         addpoint=POINTS(user=user,points=amount)
         addpoint.save()
-        return render (request,'add_point.html',{'context':context})
+        
+        return render (request,'add_point.html',context)
     return render (request,'add_point.html')
 
 def STARLINE(request):
