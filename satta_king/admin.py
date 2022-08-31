@@ -19,4 +19,5 @@ admin.site.register(Welcome_MorningHalfSangam)
 admin.site.register(Welcome_MorningFullSangam)
 admin.site.register(POINTS)
 admin.site.register(MANAGEBANK)
+admin.site.register(Images)
 

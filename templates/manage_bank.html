@@ -96,7 +96,7 @@
             <label >Google Pay Number</label>
           </div>
           <div class="col-75">
-            <input type="text"  name="GooglePayNumber" value="{{bank.GooglePayNumber}}" placeholder="Google Pay Number" required maxlength="10">
+            <input type="text"  name="GooglePayNumber"{%for b in bank%} value="{{b.GooglePayNumber}}" {%endfor%} placeholder="Google Pay Number" required maxlength="10">
           </div>
         </div>
         <div class="row">
@@ -104,13 +104,13 @@
             <label >Phone Pay Number</label>
           </div>
           <div class="col-75">
-            <input type="text" name="PhonePayNumber" value="{{user.PhonePayNumber}}" placeholder="Phone Pay Number" required maxlength="10">
+            <input type="text" name="PhonePayNumber" {%for b in bank%} value="{{b.PhonePayNumber}}" {%endfor%} placeholder="Phone Pay Number" required maxlength="10">
           </div>
           <div class="col-25">
             <label >Paytm Number</label>
           </div>
           <div class="col-75">
-            <input type="text" name="PayTmNUmber" value="{{user.PayTmNUmber}}" placeholder="Paytm Number" required maxlength="10">
+            <input type="text" name="PayTmNUmber" {%for b in bank%} value="{{b.PayTmNUmber}}" {%endfor%} placeholder="Paytm Number" required maxlength="10">
           </div>
         </div>
         <div class="row">

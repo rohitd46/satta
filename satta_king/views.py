@@ -55,7 +55,7 @@ def SignUp(request):
                     [email],
                     fail_silently=False,
                     )
-                print("user create")
+                messages.info(request,"Account Created.")
                 return redirect('home')
         else:
             messages.info(request,"password mismatch")
@@ -74,9 +74,12 @@ def Wallet(request):
     point=POINTS.objects.filter(user=request.user)
     return render (request,'wallet.html',{"point":point})
 
-def Bank(request):
-    bank=MANAGEBANK.objects.get(id=request.GooglePayNumber)
+def Bank(request,):
+    bank=MANAGEBANK.objects.filter(user=request.user)
     print(bank)
+    data={
+        'bank':bank
+    }
     if request.method == "POST":
         user=request.user
         GooglePayNumber=request.POST.get('GooglePayNumber')
@@ -86,7 +89,7 @@ def Bank(request):
         addbank.save()
         messages.info(request,"All Details Are save")
         
-    return render (request,'manage_bank.html')
+    return render (request,'manage_bank.html',data)
 
 def Winning(request):
     return render (request,'winning_history.html')
@@ -106,8 +109,8 @@ def ChangePassword(request):
         newpassword=request.POST.get('newpassword')
         cpassword=request.POST.get('cpassword')
         if newpassword==cpassword:
-            password=newpassword
-            user=user.request(password=password)
+            user=User.objects.filter(password=password)
+            user=user.request(newpassword=password)
             user.save()
         else:
             print('password worng')

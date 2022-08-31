@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Images(models.Model):
+   image=models.FileField(upload_to="media/image")
+
 class POINTS(models.Model):
    points=models.IntegerField(default=5)
    user=models.OneToOneField(User,on_delete=models.CASCADE)

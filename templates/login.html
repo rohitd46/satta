@@ -104,7 +104,7 @@ a:hover{
     <form method="POST" action="{%url 'login'%}">
       {% csrf_token %}
       <div class="box">
-        <input type="phonenumber" placeholder="Phone Number" name="username" required maxlength="25">
+        <input type="phonenumber" placeholder="Phone Number" name="username" required maxlength="10">
       </div>
       <div class="box">
         <input type="password" placeholder="Password" name="password"	required maxlength="15">
