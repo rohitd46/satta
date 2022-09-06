@@ -1,4 +1,5 @@
 from http import client
+from turtle import update
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib.auth.decorators import login_required
@@ -7,7 +8,10 @@ from .models import *
 import razorpay
 from django.core.mail import send_mail
 from django.contrib import messages
-
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+from .helpes import send_forget_password_mail
+import uuid
 
 
 
@@ -66,6 +70,41 @@ def logout(request):
     auth.logout(request)
     return redirect('login')
 
+
+
+
+def ForgetPassword(request):
+    if request.method=="POST":
+        username=request.POST.get('username')
+        
+        if not User.objects.filter(username=username).first():
+            messages.info(request,"No User Found with this Phone Number.")
+            return redirect('forgetpassword')
+        user_obj=User.objects.get(username=username)
+        token=str(uuid.uuid4())
+        print(user_obj)
+        print(token)
+        profile_obj=Profile.objects.get(user=user_obj)
+        profile_obj.forget_password_token=token
+        
+        profile_obj.save()
+        send_forget_password_mail(user_obj.email,token)
+        messages.info(request,"Email Send To Your Register Email ID.")
+        return redirect('forgetpassword')
+            
+    return render (request,'forgetpassword.html')
+
+def ResetPassword(request, token):
+    context={
+        
+    }
+    profile_obj=Profile.objects.filter(forget_password_token=token).first()
+    print(profile_obj)
+    return render(request,'resetpassword.html')
+
+
+
+
 @login_required(login_url='/')
 def Home(request):
     return render(request,'index.html')
@@ -88,7 +127,6 @@ def Bank(request,):
         addbank=MANAGEBANK(user=user,GooglePayNumber=GooglePayNumber,PhonePayNumber=PhonePayNumber,PayTmNUmber=PayTmNUmber)
         addbank.save()
         messages.info(request,"All Details Are save")
-        
     return render (request,'manage_bank.html',data)
 
 def Winning(request):
@@ -105,17 +143,18 @@ def Conatct(request):
 
 def ChangePassword(request):
     if request.method=="POST":
-        password=request.POST.get('oldpassword')
-        newpassword=request.POST.get('newpassword')
-        cpassword=request.POST.get('cpassword')
-        if newpassword==cpassword:
-            user=User.objects.filter(password=password)
-            user=user.request(newpassword=password)
-            user.save()
-        else:
-            print('password worng')
-        
-    return render (request,'change_password.html')
+        form=PasswordChangeForm(request.user,request.POST)
+        if form.is_valid():
+            v=form.save()
+            update_session_auth_hash(request,v)
+            messages.info(request,"Password Change Sucessfully..")
+    else:  
+        form=PasswordChangeForm(request.user)
+    parmas={
+        'form': form
+    }
+    return render (request,'change_password.html',parmas)
+
 
 def HowToPlay(request):
     return redirect('https://www.youtube.com')
@@ -123,10 +162,10 @@ def HowToPlay(request):
 def ADDPOINT(request):
     if request.method=="POST":
         user=request.user
-        amount=int(request.POST.get('amount'))*100
+        amount=int(request.POST.get('amount'))*100000
         print(amount)
      
-        client=razorpay.Client(auth=("rzp_test_11LbVMWfaJMbGK" ,"peosxgM6VLD2rdnWljA0lgU9"))
+        client=razorpay.Client(auth=("rzp_test_z4jsh2NBxCwEns" ,"7HIjeNqkGiUoyvYkRVqVuguL"))
         payment=client.order.create({'amount' :amount,'currency': 'INR','payment_capture':'1'})
         payment_id=payment['id']
         print(payment)
