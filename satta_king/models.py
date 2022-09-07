@@ -169,3 +169,1265 @@ class Welcome_MorningFullSangam(models.Model):
      
      def __str__(self):
         return self.user.first_name
+     
+class Kalyan_MorningSingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_MorningJodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_MorningSinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_MorningDoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_MorningTriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_MorningHalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_MorningFullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_MorningSingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_MorningJodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_MorningSinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_MorningDoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_MorningTriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_MorningHalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_MorningFullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class SrideviSingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class SrideviJodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class SrideviSinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class SrideviDoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class SrideviTriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class SrideviHalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class SrideviFullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Time_Bazar_SingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Time_Bazar_JodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Time_Bazar_SinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Time_Bazar_DoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Time_Bazar_TriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Time_Bazar_HalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Time_Bazar_FullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_Day_SingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_Day_JodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_Day_SinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_Day_DoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_Day_TriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_Day_HalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_Day_FullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class New_Kalyan_SingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class  New_Kalyan_JodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class  New_Kalyan_SinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class  New_Kalyan_DoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class  New_Kalyan_TriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class  New_Kalyan_HalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class New_Kalyan_FullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Milan_Day_SingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Milan_Day_JodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Milan_Day_SinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Milan_Day_DoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Milan_Day_TriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Milan_Day_HalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Milan_Day_FullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Rajdhani_Day_SingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Rajdhani_Day_JodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Rajdhani_Day_SinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Rajdhani_Day_DoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Rajdhani_Day_TriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Rajdhani_Day_HalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Rajdhani_Day_FullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Supreme_Day_SingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Supreme_Day_JodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Supreme_Day_SinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Supreme_Day_DoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Supreme_Day_TriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Supreme_Day_HalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Supreme_Day_FullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_SingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_JodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_SinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_DoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_TriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_HalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_FullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Sridevi_Night_SingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Sridevi_Night_JodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Sridevi_Night_SinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Sridevi_Night_DoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Sridevi_Night_TriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Sridevi_Night_HalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Sridevi_Night_FullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_Night_SingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_Night_JodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_Night_SinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_Night_DoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_Night_TriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_Night_HalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Madhur_Night_FullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class New_Main_Mumbai_SingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class New_Main_Mumbai_JodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class New_Main_Mumbai_SinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class New_Main_Mumbai_DoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class New_Main_Mumbai_TriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class New_Main_Mumbai_HalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class New_Main_Mumbai_FullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Supreme_Night_SingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Supreme_Night_JodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Supreme_Night_SinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Supreme_Night_DoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Supreme_Night_TriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Supreme_Night_HalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Supreme_Night_FullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Milan_Night_SingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Milan_Night_JodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Milan_Night_SinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Milan_Night_DoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Milan_Night_TriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Milan_Night_HalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Milan_Night_FullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_Night_SingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_Night_JodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_Night_SinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_Night_DoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_Night_TriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_Night_HalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Kalyan_Night_FullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Rajdhani_Night_SingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Rajdhani_Night_JodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Rajdhani_Night_SinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Rajdhani_Night_DoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Rajdhani_Night_TriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Rajdhani_Night_HalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Rajdhani_Night_FullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Main_Bazar_SingleDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Main_Bazar_JodiDigit(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     digit=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Main_Bazar_SinglePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Main_Bazar_DoublePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Main_Bazar_TriplePana(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Main_Bazar_HalfSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     session = models.CharField(max_length=10)
+     open_digit=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+class Main_Bazar_FullSangam(models.Model):
+     user = models.ForeignKey(User,on_delete=models.CASCADE)
+     date=models.DateField()
+     open_pana=models.IntegerField(null=True)
+     close_pana=models.IntegerField(null=True)
+     points=models.IntegerField(null=True)
+     
+     def __str__(self):
+        return self.user.first_name
+
+

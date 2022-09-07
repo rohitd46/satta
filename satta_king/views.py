@@ -80,11 +80,12 @@ def ForgetPassword(request):
         if not User.objects.filter(username=username).first():
             messages.info(request,"No User Found with this Phone Number.")
             return redirect('forgetpassword')
+        
         user_obj=User.objects.get(username=username)
         token=str(uuid.uuid4())
         print(user_obj)
-        print(token)
         profile_obj=Profile.objects.get(user=user_obj)
+        print(profile_obj)
         profile_obj.forget_password_token=token
         
         profile_obj.save()
@@ -162,19 +163,17 @@ def HowToPlay(request):
 def ADDPOINT(request):
     if request.method=="POST":
         user=request.user
-        amount=int(request.POST.get('amount'))*100000
-        print(amount)
+        amount=int(request.POST.get('amount'))*100
+        print(amount,user)
      
         client=razorpay.Client(auth=("rzp_test_z4jsh2NBxCwEns" ,"7HIjeNqkGiUoyvYkRVqVuguL"))
         payment=client.order.create({'amount' :amount,'currency': 'INR','payment_capture':'1'})
         payment_id=payment['id']
-        print(payment)
+        # print(payment)
         context={
             'amount':amount,
             'order_id':payment_id
         }
-        addpoint=POINTS(user=user,points=amount)
-        addpoint.save()
         
         return render (request,'add_point.html',context)
     return render (request,'add_point.html')
@@ -197,6 +196,7 @@ def MILANMORNINGSINGLEDIGIT(request):
         points=request.POST.get('points')
         milanmorningsingledigit=Milan_MorningSingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
         milanmorningsingledigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('milan_morning')
     return render (request,'MILANMORNING/single_digit.html')
 
@@ -207,6 +207,7 @@ def MILANMORNINGJODIDIGIT(request):
         points=request.POST.get('points')
         milanmorningjodidigit=Milan_MorningJodiDigit(user=user,digit=digit,points=points,date=datetime.today())
         milanmorningjodidigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('milan_morning')
      return render (request,'MILANMORNING/jodi_digit.html')
 
@@ -218,6 +219,7 @@ def MILANMORNINGSINGLEPANNA(request):
         points=request.POST.get('points')
         milanmorningsinglepana=Milan_MorningSinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
         milanmorningsinglepana.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('milan_morning')
     return render (request,'MILANMORNING/singlepanna.html')
 
@@ -229,6 +231,7 @@ def MILANMORNINGDOUBLEPANNA(request):
         points=request.POST.get('points')
         milanmorningdoublepana=Milan_MorningDoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
         milanmorningdoublepana.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('milan_morning')
     return render (request,'MILANMORNING/doublepanna.html')
 
@@ -240,6 +243,7 @@ def MILANMORNINGTRIPLEPANNA(request):
         points=request.POST.get('points')
         milanmorningtriplepana=Milan_MorningTriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
         milanmorningtriplepana.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('milan_morning')
     return render (request,'MILANMORNING/triplepanna.html')
 
@@ -252,6 +256,7 @@ def MILANMORNINGHALFSANGAM(request):
         points=request.POST.get('points')
         milanmorninghalfsangam=Milan_MorningHalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
         milanmorninghalfsangam.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('milan_morning')
     return render (request,'MILANMORNING/halfsangam.html')
 
@@ -263,6 +268,7 @@ def MILANMORNINGFULLSANGAM(request):
         points=request.POST.get('points')
         milanmorningfullsangam=Milan_MorningFullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
         milanmorningfullsangam.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('milan_morning')
     return render (request,'MILANMORNING/fullsangam.html')
 # MILAN MORNING END
@@ -278,6 +284,7 @@ def WELCOMEMORNINGSINGLEDIGIT(request):
         points=request.POST.get('points')
         welcomemorningsingledigit=Welcome_MorningSingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
         welcomemorningsingledigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('welcome_morning')
     return render (request,'WELCOMEMORING/welcomesingle_digit.html')
 
@@ -288,6 +295,7 @@ def WELCOMEMORNINGJODIDIGIT(request):
         points=request.POST.get('points')
         welcomemorningjodidigit=Welcome_MorningJodiDigit(user=user,digit=digit,points=points,date=datetime.today())
         welcomemorningjodidigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('welcome_morning')
     return render (request,'WELCOMEMORING/welcomejodi_digit.html')
 
@@ -299,6 +307,7 @@ def WELCOMEMORNINGSINGLEPANNA(request):
         points=request.POST.get('points')
         welcomemorningsinglepana=Welcome_MorningSinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
         welcomemorningsinglepana.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('welcome_morning')
     return render (request,'WELCOMEMORING/singlepanna.html')
 
@@ -310,6 +319,7 @@ def WELCOMEMORNINGDOUBLEPANNA(request):
         points=request.POST.get('points')
         welcomemorningdoublepana=Welcome_MorningDoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
         welcomemorningdoublepana.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('welcome_morning')
     return render (request,'WELCOMEMORING/doublepanna.html')
 
@@ -321,6 +331,7 @@ def WELCOMEMORNINGTRIPLEPANNA(request):
         points=request.POST.get('points')
         welcomemorningtriplepana=Welcome_MorningTriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
         welcomemorningtriplepana.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('welcome_morning')
     return render (request,'WELCOMEMORING/triplepanna.html')
 
@@ -333,6 +344,7 @@ def WELCOMEMORNINGHALFSANGAM(request):
         points=request.POST.get('points')
         welcomemorninghalfsangam=Welcome_MorningHalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
         welcomemorninghalfsangam.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('welcome_morning')
     return render (request,'WELCOMEMORING/halfsangam.html')
 
@@ -344,6 +356,7 @@ def WELCOMEMORNINGFULLSANGAM(request):
         points=request.POST.get('points')
         welcomemorningfullsangam=Welcome_MorningFullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
         welcomemorningfullsangam.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('welcome_morning')
     return render (request,'WELCOMEMORING/fullsangam.html')
 # WELCOME MORNING END
@@ -352,25 +365,88 @@ def KALYANMORNING(request):
     return render (request,'KALYANMORNING/kalyanmorning.html')
 
 def KALYANMORINGSINGLEDIGIT(request):
-    return render (request,'KALYANMORNING/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        kalyanmorningsingledigit=Kalyan_MorningSingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        kalyanmorningsingledigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyan_morning')
+     return render (request,'KALYANMORNING/single_digit.html')
 
 def KALYANMORINGJODIDIGIT(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        kalyanmorningjodidigit=Kalyan_MorningJodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        kalyanmorningjodidigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyan_morning')
     return render (request,'KALYANMORNING/jodi_digit.html')
 
 def KALYANMORINGSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        kalyanmorningjodidigit=Kalyan_MorningSinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        kalyanmorningjodidigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyan_morning')
     return render (request,'KALYANMORNING/singlepanna.html')
 
 def KALYANMORINGDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        kalyanmorningjodidigit=Kalyan_MorningDoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        kalyanmorningjodidigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyan_morning')
     return render (request,'KALYANMORNING/doublepanna.html')
 
 def KALYANMORNINGTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        kalyanmorningjodidigit=Kalyan_MorningTriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        kalyanmorningjodidigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyan_morning')
     return render (request,'KALYANMORNING/triplepanna.html')
 
 def KALYANMORINGJHALFSANGAM(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        kalyanmorningjodidigit=Kalyan_MorningHalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        kalyanmorningjodidigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyan_morning')
     return render (request,'KALYANMORNING/halfsangam.html')
 
 def KALYANMORINGFULLSANGAM(request):
-    return render (request,'KALYANMORNING/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        kalyanmorningjodidigit=Kalyan_MorningFullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        kalyanmorningjodidigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyan_morning')
+     return render (request,'KALYANMORNING/fullsangam.html')
 # KALYAN MORNING END
 # MADHUR MORNING START
 def MADHURMORNING(request):
