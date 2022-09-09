@@ -393,8 +393,8 @@ def KALYANMORINGSINGLEPANA(request):
         session=request.POST.get('session')
         pana=request.POST.get('pana')
         points=request.POST.get('points')
-        kalyanmorningjodidigit=Kalyan_MorningSinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
-        kalyanmorningjodidigit.save()
+        kalyanmorningsinglepana=Kalyan_MorningSinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        kalyanmorningsinglepana.save()
         messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('kalyan_morning')
     return render (request,'KALYANMORNING/singlepanna.html')
@@ -405,8 +405,8 @@ def KALYANMORINGDOUBLEPANA(request):
         session=request.POST.get('session')
         pana=request.POST.get('pana')
         points=request.POST.get('points')
-        kalyanmorningjodidigit=Kalyan_MorningDoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
-        kalyanmorningjodidigit.save()
+        kalyanmorningdoublepana=Kalyan_MorningDoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        kalyanmorningdoublepana.save()
         messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('kalyan_morning')
     return render (request,'KALYANMORNING/doublepanna.html')
@@ -417,8 +417,8 @@ def KALYANMORNINGTRIPLEPANA(request):
         session=request.POST.get('session')
         pana=request.POST.get('pana')
         points=request.POST.get('points')
-        kalyanmorningjodidigit=Kalyan_MorningTriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
-        kalyanmorningjodidigit.save()
+        kalyanmorningtriplepana=Kalyan_MorningTriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        kalyanmorningtriplepana.save()
         messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('kalyan_morning')
     return render (request,'KALYANMORNING/triplepanna.html')
@@ -430,8 +430,8 @@ def KALYANMORINGJHALFSANGAM(request):
         open_digit=request.POST.get('open_digit')
         close_pana=request.POST.get('close_pana')
         points=request.POST.get('points')
-        kalyanmorningjodidigit=Kalyan_MorningHalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
-        kalyanmorningjodidigit.save()
+        kalyanmorninghalfsangam=Kalyan_MorningHalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        kalyanmorninghalfsangam.save()
         messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('kalyan_morning')
     return render (request,'KALYANMORNING/halfsangam.html')
@@ -442,8 +442,8 @@ def KALYANMORINGFULLSANGAM(request):
         open_pana=request.POST.get('open_pana')
         close_pana=request.POST.get('close_pana')
         points=request.POST.get('points')
-        kalyanmorningjodidigit=Kalyan_MorningFullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
-        kalyanmorningjodidigit.save()
+        kalyanmorningfullsangam=Kalyan_MorningFullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        kalyanmorningfullsangam.save()
         messages.info(request,"Your Bid Recived.Thank You!! ")
         return redirect('kalyan_morning')
      return render (request,'KALYANMORNING/fullsangam.html')
@@ -453,225 +453,792 @@ def MADHURMORNING(request):
     return render (request,'MADHURMORNING/madhurmorning.html')
 
 def MADHURMORNINGSINGLEDIGIT(request):
-    return render (request,'MADHURMORNING/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        madhurmorningsingledigit=Madhur_MorningSingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        madhurmorningsingledigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhur_morning')
+     return render (request,'MADHURMORNING/single_digit.html')
 
 def MADHURMORINGJODIDIGIT(request):
-    return render (request,'MADHURMORNING/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        madhurmorningjodidigit=Madhur_MorningJodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        madhurmorningjodidigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhur_morning')
+     return render (request,'MADHURMORNING/jodi_digit.html')
 
 def MADHURMORINGSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        madhurmorningsinglepana=Madhur_MorningSinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        madhurmorningsinglepana.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhur_morning')
     return render (request,'MADHURMORNING/singlepanna.html')
 
 def MADHURMORINGDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        madhurmorningdoublepana=Madhur_MorningDoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        madhurmorningdoublepana.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhur_morning')
     return render (request,'MADHURMORNING/doublepanna.html')
 
 def MADHURMORINGTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        madhurmorningtriplepana=Madhur_MorningTriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        madhurmorningtriplepana.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhur_morning')
     return render (request,'MADHURMORNING/triplepanna.html')
 
 def MADHURMORINGHALFSANGAM(request):
-    return render (request,'MADHURMORNING/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        madhurmorninghalfsangam=Madhur_MorningHalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        madhurmorninghalfsangam.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhur_morning')
+     return render (request,'MADHURMORNING/halfsangam.html')
 
 def MADHURMORINGFULLSANGAM(request):
-    return render (request,'MADHURMORNING/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        madhurmorningfullsangam=Madhur_MorningFullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        madhurmorningfullsangam.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhur_morning')
+     return render (request,'MADHURMORNING/fullsangam.html')
 # MADHUR MORING END
 # SRIDEVI START
 def SRIDEVI(request):
     return render (request,'SRIDEVI/sridevi.html')
 
 def SRIDEVISINGLEDIGIT(request):
-    return render (request,'SRIDEVI/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        siridevisingledigit=SrideviSingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        siridevisingledigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('sridevi')
+     return render (request,'SRIDEVI/single_digit.html')
 
 def SRIDEVIJODIDIGIT(request):
-    return render (request,'SRIDEVI/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        sridevijodidigit=SrideviJodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        sridevijodidigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('sridevi')
+     return render (request,'SRIDEVI/jodi_digit.html')
 
 def SRIDEVISINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sridevisinglepana=Kalyan_MorningSinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        sridevisinglepana.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('sridevi')
     return render (request,'SRIDEVI/singlepanna.html')
 
 def SRIDEVIDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sridevidoublepana=SrideviDoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        sridevidoublepana.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('sridevi')
     return render (request,'SRIDEVI/doublepanna.html')
 
 def SRIDEVITRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sridevitriplepana=SrideviTriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        sridevitriplepana.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('sridevi')
     return render (request,'SRIDEVI/triplepanna.html')
 
 def SRIDEVIHALFSANGAM(request):
-    return render (request,'SRIDEVI/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        sridevihalfsangam=SrideviHalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        sridevihalfsangam.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('sridevi')
+     return render (request,'SRIDEVI/halfsangam.html')
 
 def SRIDEVIFULLSANGAM(request):
-    return render (request,'SRIDEVI/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        sridevifullsangam=SrideviFullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        sridevifullsangam.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('sridevi')
+     return render (request,'SRIDEVI/fullsangam.html')
 # SRIDEVI END
 # TIMEBAZAR START
 def TIMEBAZAR(request):
     return render (request,'TIMEBAZAR/timebazar.html')
 
 def TIMEBAZARSINGLEDIGIT(request):
-    return render (request,'TIMEBAZAR/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        timebazarsingledigit=Time_Bazar_SingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        timebazarsingledigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('timebazar')
+     return render (request,'TIMEBAZAR/single_digit.html')
 
 def TIMEBAZARJODIDIGIT(request):
-    return render (request,'TIMEBAZAR/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        timebazarjodidigit=Time_Bazar_JodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        timebazarjodidigit.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('timebazar')
+     return render (request,'TIMEBAZAR/jodi_digit.html')
 
 def TIMEBAZARSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        timebazarsinglepana=Time_Bazar_SinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        timebazarsinglepana.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('timebazar')
     return render (request,'TIMEBAZAR/singlepanna.html')
 
 def TIMEBAZARDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        timebazardoublepana=Time_Bazar_DoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        timebazardoublepana.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('timebazar')
     return render (request,'TIMEBAZAR/doublepanna.html')
 
 def TIMEBAZARTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        timebazartriplepana=Time_Bazar_TriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        timebazartriplepana.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('timebazar')
     return render (request,'TIMEBAZAR/triplepanna.html')
 
 def TIMEBAZARHALFSANGAM(request):
-    return render (request,'TIMEBAZAR/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        timebazarhalfsangam=Time_Bazar_HalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        timebazarhalfsangam.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('timebazar')
+     return render (request,'TIMEBAZAR/halfsangam.html')
 
 def TIMEBAZARFULLSANGAM(request):
-    return render (request,'TIMEBAZAR/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        timebazarfullsangam=Time_Bazar_FullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        timebazarfullsangam.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('timebazar')
+     return render (request,'TIMEBAZAR/fullsangam.html')
 # TIMEBAZAR END
 #  MADHUR DAY START
 def MADHURDAY(request):
     return render (request,'MADHURDAY/madhurday.html')
 
 def MADHURDAYSINGLEDIGIT(request):
-    return render (request,'MADHURDAY/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        mds=Madhur_Day_SingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        mds.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhurday')
+     return render (request,'MADHURDAY/single_digit.html')
 
 def MADHURDAYJODIDIGIT(request):
-    return render (request,'MADHURDAY/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        mdj=Madhur_Day_JodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        mdj.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhurday')
+     return render (request,'MADHURDAY/jodi_digit.html')
 
 def MADHURDAYSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mdsp=Madhur_Day_SinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mdsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhurday')
     return render (request,'MADHURDAY/singlepanna.html')
 
 def MADHURDAYDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mddp=Madhur_Day_DoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mddp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhurday')
     return render (request,'MADHURDAY/doublepanna.html')
 
 def MADHURDAYTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mdtp=Madhur_Day_TriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mdtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhurday')
     return render (request,'MADHURDAY/triplepanna.html')
 
 def MADHURDAYHALFSANGAM(request):
-    return render (request,'MADHURDAY/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        mdhs=Madhur_Day_HalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        mdhs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhurday')
+     return render (request,'MADHURDAY/halfsangam.html')
 
 def MADHURDAYFULLSANGAM(request):
-    return render (request,'MADHURDAY/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        mdfs=Madhur_Day_FullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        mdfs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhurday')
+     return render (request,'MADHURDAY/fullsangam.html')
 #  MADHUR DAY END
 #  NEW KALYAN START
 def NEWKALYAN(request):
     return render (request,'NEWKALYAN/newkalyan.html')
 
 def NEWKALYANSINGLEDIGIT(request):
-    return render (request,'NEWKALYAN/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        nksd=New_Kalyan_SingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        nksd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('newkalyan')
+     return render (request,'NEWKALYAN/single_digit.html')
 
 def NEWKALYANJODIDIGIT(request):
-    return render (request,'NEWKALYAN/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        nkjd=New_Kalyan_JodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        nkjd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('newkalyan')
+     return render (request,'NEWKALYAN/jodi_digit.html')
 
 def NEWKALYANSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        nksp=New_Kalyan_SinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        nksp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('newkalyan')
     return render (request,'NEWKALYAN/singlepanna.html')
 
 def NEWKALYANDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        nkdp=New_Kalyan_DoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        nkdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('newkalyan')
     return render (request,'NEWKALYAN/doublepanna.html')
 
 def NEWKALYANTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        nktp=New_Kalyan_TriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        nktp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('newkalyan')
     return render (request,'NEWKALYAN/triplepanna.html')
 
 def NEWKALYANHALFSANGAM(request):
-    return render (request,'NEWKALYAN/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        nkhs=New_Kalyan_HalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        nkhs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('newkalyan')
+     return render (request,'NEWKALYAN/halfsangam.html')
 
 def NEWKALYANFULLSANGAM(request):
-    return render (request,'NEWKALYAN/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        nkfs=New_Kalyan_FullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        nkfs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('newkalyan')
+     return render (request,'NEWKALYAN/fullsangam.html')
 #  NEW KALYAN END
 #  MILANDAY START
 def MILANDAY(request):
     return render (request,'MILANDAY/milanday.html')
 
 def MILANDAYSINGLEDIGIT(request):
-    return render (request,'MILANDAY/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        mdsd=Milan_Day_SingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        mdsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('milanday')
+     return render (request,'MILANDAY/single_digit.html')
 
 def MILANDAYJODIDIGIT(request):
-    return render (request,'MILANDAY/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        msjd=Milan_Day_JodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        msjd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('milanday')
+     return render (request,'MILANDAY/jodi_digit.html')
 
 def MILANDAYSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mdsp=Milan_Day_SinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mdsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('milanday')
     return render (request,'MILANDAY/singlepanna.html')
 
 def MILANDAYDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mddp=Milan_Day_DoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mddp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('milanday')
     return render (request,'MILANDAY/doublepanna.html')
 
 def MILANDAYTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mdtp=Milan_Day_TriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mdtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('milanday')
     return render (request,'MILANDAY/triplepanna.html')
 
 def MILANDAYHALFSANGAM(request):
-    return render (request,'MILANDAY/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        mdhs=Milan_Day_HalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        mdhs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('milanday')
+     return render (request,'MILANDAY/halfsangam.html')
 
 def MILANDAYFULLSANGAM(request):
-    return render (request,'MILANDAY/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        mdfs=Madhur_Day_FullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        mdfs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('milanday')
+     return render (request,'MILANDAY/fullsangam.html')
 # MILANDAY END
 # RAJDHANI DAY
 def RAJDHANIDAY(request):
     return render (request,'RAJDHANIDAY/rajdhaniday.html')
 
 def RAJDHANIDAYSINGLEDIGIT(request):
-    return render (request,'RAJDHANIDAY/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        rdsd=Rajdhani_Day_SingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        rdsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('rajdhaniday')
+     return render (request,'RAJDHANIDAY/single_digit.html')
 
 def RAJDHANIDAYJODIDIGIT(request):
-    return render (request,'RAJDHANIDAY/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        rdjd=Rajdhani_Day_JodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        rdjd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('rajdhaniday')
+     return render (request,'RAJDHANIDAY/jodi_digit.html')
 
 def RAJDHANIDAYJSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        rdsp=Rajdhani_Day_SinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        rdsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('rajdhaniday')
     return render (request,'RAJDHANIDAY/singlepanna.html')
 
 def RAJDHANIDAYDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        rddp =Rajdhani_Day_DoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        rddp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('rajdhaniday')
     return render (request,'RAJDHANIDAY/doublepanna.html')
 
 def RAJDHANIDAYTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        rdtp=Rajdhani_Day_TriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        rdtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('rajdhaniday')
     return render (request,'RAJDHANIDAY/triplepanna.html')
 
 def RAJDHANIDAYHALFSANGAM(request):
-    return render (request,'RAJDHANIDAY/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        rdhs =Rajdhani_Day_HalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        rdhs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('rajdhaniday')
+     return render (request,'RAJDHANIDAY/halfsangam.html')
 
 def RAJDHANIDAYFULLSANGAM(request):
-    return render (request,'RAJDHANIDAY/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        rdfs=Rajdhani_Day_FullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        rdfs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('rajdhaniday')
+     return render (request,'RAJDHANIDAY/fullsangam.html')
 # RAJDHANI DAY END
 # SUPREME DAY START
 def SUPREMEDAY(request):
     return render (request,'SUPREMEDAY/supremeday.html')
 
 def SUPREMEDAYSINGLEDIGIT(request):
-    return render (request,'SUPREMEDAY/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        sdsd=Supreme_Day_SingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        sdsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('supremeday')
+     return render (request,'SUPREMEDAY/single_digit.html')
 
 def SUPREMEDAYJODIDIGIT(request):
-    return render (request,'SUPREMEDAY/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        sdjd=Supreme_Day_JodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        sdjd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('supremeday')
+     return render (request,'SUPREMEDAY/jodi_digit.html')
 
 def SUPREMEDAYSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sdsp=Supreme_Day_SinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        sdsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('supremeday')
     return render (request,'SUPREMEDAY/singlepanna.html')
 
 def SUPREMEDAYDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sddp=Supreme_Day_DoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        sddp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('supremeday')
     return render (request,'SUPREMEDAY/doublepanna.html')
 
 def SUPREMEDAYTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sdtp=Supreme_Day_TriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        sdtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('supremeday')
     return render (request,'SUPREMEDAY/triplepanna.html')
 
 def SUPREMEDAYHALFSANGAM(request):
-    return render (request,'SUPREMEDAY/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        sdhs=Supreme_Day_HalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        sdhs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyan_morning')
+     return render (request,'SUPREMEDAY/halfsangam.html')
 
 def SUPREMEDAYFULLSANGAM(request):
-    return render (request,'SUPREMEDAY/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        sdfs=Supreme_Day_FullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        sdfs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('supremeday')
+     return render (request,'SUPREMEDAY/fullsangam.html')
 # SUPREME DAY END
 # KALYAN START
 def KALYAN(request):
     return render (request,'KALYAN/kalyan.html')
 
 def KALYANSINGLEDIGIT(request):
-    return render (request,'KALYAN/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        ksd =Kalyan_SingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        ksd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyan')
+     return render (request,'KALYAN/single_digit.html')
 
 def KALYANJODIDIGIT(request):
-    return render (request,'KALYAN/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        kjd=Kalyan_JodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        kjd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyan')
+     return render (request,'KALYAN/jodi_digit.html')
 
 def KALYANSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        ksp=Kalyan_SinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        ksp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyan')
     return render (request,'KALYAN/singlepanna.html')
 
 def KALYANDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        kdp=Kalyan_DoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        kdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyan')
     return render (request,'KALYAN/doublepanna.html')
 
 def KALYANTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        ktp =Kalyan_TriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        ktp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyan')
     return render (request,'KALYAN/triplepanna.html')
 
 def KALYANHALFSANGAM(request):
-    return render (request,'KALYAN/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        khs=Kalyan_HalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        khs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyan_')
+     return render (request,'KALYAN/halfsangam.html')
 
 def KALYANFULLSANGAM(request):
-    return render (request,'KALYAN/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        kfs=Kalyan_FullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        kfs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyan')
+     return render (request,'KALYAN/fullsangam.html')
 # KALYAN END
 
 # SRIDEVI NIGHT START
@@ -679,200 +1246,704 @@ def SRIDEVINIGHT(request):
     return render (request,'SRIDEVINIGHT/sridevinight.html')
 
 def SRIDEVINIGHTSINGLEDIGIT(request):
-    return render (request,'SRIDEVINIGHT/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        snsd=Sridevi_Night_SingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        snsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('sridevinight')
+     return render (request,'SRIDEVINIGHT/single_digit.html')
 
 def SRIDEVINIGHTJODIDIGIT(request):
-    return render (request,'SRIDEVINIGHT/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        snjd=Sridevi_Night_JodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        snjd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('sridevinight')
+     return render (request,'SRIDEVINIGHT/jodi_digit.html')
 
 def SRIDEVINIGHTSINGLEPAMNA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        snsp=Sridevi_Night_SinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        snsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('sridevinight')
     return render (request,'SRIDEVINIGHT/singlepanna.html')
 
 def SRIDEVINIGHTDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sndp=Sridevi_Night_DoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        sndp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('sridevinight')
     return render (request,'SRIDEVINIGHT/doublepanna.html')
 
 def SRIDEVINIGHTTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sntp=Sridevi_Night_TriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        sntp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('sridevinight')
     return render (request,'SRIDEVINIGHT/triplepanna.html')
 
 def SRIDEVINIGHTHALFSANGAM(request):
-    return render (request,'SRIDEVINIGHT/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        snhs=Sridevi_Night_HalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        snhs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('sridevinight')
+     return render (request,'SRIDEVINIGHT/halfsangam.html')
 
 def SRIDEVINIGHTFULLSANGAM(request):
-    return render (request,'SRIDEVINIGHT/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        snfs=Sridevi_Night_FullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        snfs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('sridevinight')
+     return render (request,'SRIDEVINIGHT/fullsangam.html')
 # SRIDEVI NIGHT END
 # MADHUR NIGHT START
 def MADHURINIGHT(request):
     return render (request,'MADHURNIGHT/madhurnight.html')
 
 def MADHURNIGHTSINGLEDIGIT(request):
-    return render (request,'MADHURNIGHT/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        mnsd =Madhur_Night_SingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        mnsd .save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhurnight')
+     return render (request,'MADHURNIGHT/single_digit.html')
 
 def MADHURNIGHTJODIDIGIT(request):
-    return render (request,'MADHURNIGHT/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        mnjd=Madhur_Night_JodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        mnjd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhurnight')
+     return render (request,'MADHURNIGHT/jodi_digit.html')
 
 def MADHURNIGHTSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mnsp =Madhur_Night_SinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mnsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhurnight')
     return render (request,'MADHURNIGHT/singlepanna.html')
 
 def MADHURNIGHTDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mndp=Madhur_Night_DoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mndp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhurnight')
     return render (request,'MADHURNIGHT/doublepanna.html')
 
 def MADHURNIGHTTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mntp=Madhur_Night_TriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mntp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhurnight')
     return render (request,'MADHURNIGHT/triplepanna.html')
 
 def MADHURNIGHTHALFSANGAM(request):
-    return render (request,'MADHURNIGHT/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        mnhs =Madhur_Night_HalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        mnhs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhurnight')
+     return render (request,'MADHURNIGHT/halfsangam.html')
 
 def MADHURNIGHTFULLSANGAM(request):
-    return render (request,'MADHURNIGHT/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        mnfs=Madhur_Night_FullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        mnfs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('madhurnight')
+     return render (request,'MADHURNIGHT/fullsangam.html')
 # MADHRU NIGHT END
 # NEW MUMBAI START
 def NEWMAINMUMBAI(request):
     return render (request,'NEWMAINMUMBAI/newmainmumbai.html')
 
 def NEWMAINMUMBAISINGLEDIGIT(request):
-    return render (request,'NEWMAINMUMBAI/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        nmmsj=New_Main_Mumbai_SingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        nmmsj.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('newmainmumbai')
+     return render (request,'NEWMAINMUMBAI/single_digit.html')
 
 def NEWMAINMUMBAIJODIDIGIT(request):
-    return render (request,'NEWMAINMUMBAI/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        mnmjd =New_Main_Mumbai_JodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        mnmjd .save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('newmainmumbai')
+     return render (request,'NEWMAINMUMBAI/jodi_digit.html')
 
 def NEWMAINMUMBAISINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mnmsp=New_Main_Mumbai_SinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mnmsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('newmainmumbai')
     return render (request,'NEWMAINMUMBAI/singlepanna.html')
 
 def NEWMAINMUMBAIDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mnmdp=New_Main_Mumbai_DoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mnmdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('newmainmumbai')
     return render (request,'NEWMAINMUMBAI/doublepanna.html')
 
 def NEWMAINMUMBAITRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mnmtp=New_Main_Mumbai_TriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mnmtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('newmainmumbai')
     return render (request,'NEWMAINMUMBAI/triplepanna.html')
 
 def NEWMAINMUMBAIHALFSANGAM(request):
-    return render (request,'NEWMAINMUMBAI/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        mnmhs=New_Main_Mumbai_HalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        mnmhs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('newmainmumbai')
+     return render (request,'NEWMAINMUMBAI/halfsangam.html')
 
 def NEWMAINMUMBAIFULLSANGAM(request):
-    return render (request,'NEWMAINMUMBAI/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        mnmfs=New_Main_Mumbai_FullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        mnmfs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('newmainmumbai')
+     return render (request,'NEWMAINMUMBAI/fullsangam.html')
 # NEW MAIN MUMBAI END
 # SUPREME NIGHT START
 def SUPREMENIGHT(request):
     return render (request,'SUPREMENIGHT/supremenight.html')
 
 def SUPREMENIGHTSINGLEDIGIT(request):
-    return render (request,'SUPREMENIGHT/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        snsd=Supreme_Night_SingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        snsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('supremenight')
+     return render (request,'SUPREMENIGHT/single_digit.html')
 
 def SUPREMENIGHTJODIDIGIT(request):
-    return render (request,'SUPREMENIGHT/jodi_digit.html')
+      if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        snjd=Supreme_Night_JodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        snjd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('supremenight')
+      return render (request,'SUPREMENIGHT/jodi_digit.html')
 
 def SUPREMENIGHTSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        snsp=Supreme_Night_SinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        snsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('supremenight')
     return render (request,'SUPREMENIGHT/singlepanna.html')
 
 def SUPREMENIGHTDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sndp=Supreme_Night_DoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        sndp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('supremenight')
     return render (request,'SUPREMENIGHT/doublepanna.html')
 
 def SUPREMENIGHTTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sntp=Supreme_Night_TriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        sntp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('supremenight')
     return render (request,'SUPREMENIGHT/triplepanna.html')
 
 def SUPREMENIGHTHALFSANGAM(request):
-    return render (request,'SUPREMENIGHT/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        snhs=Supreme_Night_HalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        snhs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('supremenight')
+     return render (request,'SUPREMENIGHT/halfsangam.html')
 
 def SUPREMENIGHTFULLSANGAM(request):
-    return render (request,'SUPREMENIGHT/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        snfs =Supreme_Night_FullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        snfs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('supremenight')
+     return render (request,'SUPREMENIGHT/fullsangam.html')
 # SUPREME NIGHT END
 # MILAN NIGHT START
 def MILANNIGHT(request):
     return render (request,'MILANNIGHT/milannight.html')
 
 def MILANNIGHTSINGLEDIGIT(request):
-    return render (request,'MILANNIGHT/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        mnsd=Milan_Night_SingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        mnsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('milannight')
+     return render (request,'MILANNIGHT/single_digit.html')
 
 def MILANNIGHTJODIDIGIT(request):
-    return render (request,'MILANNIGHT/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        mnjd=Milan_Night_JodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        mnjd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('milannight')
+     return render (request,'MILANNIGHT/jodi_digit.html')
 
 def MILANNIGHTSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mnsp=Milan_Night_SinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mnsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('milannight')
     return render (request,'MILANNIGHT/singlepanna.html')
 
 def MILANNIGHTDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mndp=Milan_Night_DoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mndp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('milannight')
     return render (request,'MILANNIGHT/doublepanna.html')
 
 def MILANNIGHTJTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mntp=Milan_Night_TriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mntp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('milannight')
     return render (request,'MILANNIGHT/triplepanna.html')
 
 def MILANNIGHTHALFSANGAM(request):
-    return render (request,'MILANNIGHT/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        mnhs=Milan_Night_HalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        mnhs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('milannight')
+     return render (request,'MILANNIGHT/halfsangam.html')
 
 def MILANNIGHTFULLSANGAM(request):
-    return render (request,'MILANNIGHT/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        mnfs=Milan_Night_FullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        mnfs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('milannight')
+     return render (request,'MILANNIGHT/fullsangam.html')
 # MILAN NIGHT END
 # KALYAN NIGHT START
 def KALYANNIGHT(request):
     return render (request,'KALYANNIGHT/kalyannight.html')
 
 def KALYANNIGHTSINGLEDIGIT(request):
-    return render (request,'KALYANNIGHT/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        knsd=Kalyan_Night_SingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        knsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyannight')
+     return render (request,'KALYANNIGHT/single_digit.html')
 
 def KALYANNIGHTJODIDIGIT(request):
-    return render (request,'KALYANNIGHT/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        knjd=Kalyan_Night_JodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        knjd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyannight')
+     return render (request,'KALYANNIGHT/jodi_digit.html')
 
 def KALYANNIGHTSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        knsp=Kalyan_Night_SinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        knsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyannight')
     return render (request,'KALYANNIGHT/singlepanna.html')
 
 def KALYANNIGHTDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        kndp=Kalyan_Night_DoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        kndp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyannight')
     return render (request,'KALYANNIGHT/doublepanna.html')
 
 def KALYANNIGHTTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        kntp=Kalyan_Night_TriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        kntp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyannight')
     return render (request,'KALYANNIGHT/triplepanna.html')
 
 def KALYANNIGHTHALFSANGAM(request):
-    return render (request,'KALYANNIGHT/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        knhs=Kalyan_Night_HalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        knhs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyannight')
+     return render (request,'KALYANNIGHT/halfsangam.html')
 
 def KALYANNIGHTFULLSANGAM(request):
-    return render (request,'KALYANNIGHT/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        knfs=Kalyan_Night_FullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        knfs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('kalyannight')
+     return render (request,'KALYANNIGHT/fullsangam.html')
 # KALYAN NIGHT END
 # RAJDHANI NIGHT START
 def RAJDHANINIGHT(request):
     return render (request,'RAJADHANINIGHT/rajadhaninight.html')
 
 def RAJDHANINIGHTSINGLEDIGIT(request):
-    return render (request,'RAJADHANINIGHT/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        rjnsd=Rajdhani_Night_SingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        rjnsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('rajdhaninight')
+     return render (request,'RAJADHANINIGHT/single_digit.html')
 
 def RAJDHANINIGHTJODIDIGIT(request):
-    return render (request,'RAJADHANINIGHT/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        rjnjd=Rajdhani_Night_JodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        rjnjd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('rajdhaninight')
+     return render (request,'RAJADHANINIGHT/jodi_digit.html')
 
 def RAJDHANINIGHTSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        rjnsp=Rajdhani_Night_SinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        rjnsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('rajdhaninight')
     return render (request,'RAJADHANINIGHT/singlepanna.html')
 
 def RAJDHANINIGHTDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        rjndp=Rajdhani_Night_DoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        rjndp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('rajdhaninight')
     return render (request,'RAJADHANINIGHT/doublepanna.html')
 
 def RAJDHANINIGHTTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        rjntp=Rajdhani_Night_TriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        rjntp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('rajdhaninight')
     return render (request,'RAJADHANINIGHT/triplepanna.html')
 
 def RAJDHANINIGHTHALFSANGAM(request):
-    return render (request,'RAJADHANINIGHT/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        rjnhs=Rajdhani_Night_HalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        rjnhs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('rajdhaninight')
+     return render (request,'RAJADHANINIGHT/halfsangam.html')
 
 def RAJDHANINIGHTFULLSANGAM(request):
-    return render (request,'RAJADHANINIGHT/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        rjnfs=Rajdhani_Night_FullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        rjnfs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('rajdhaninight')
+     return render (request,'RAJADHANINIGHT/fullsangam.html')
 # RAJDHANI NIGHT START
 # MAIN BAZAR START
 def MAINBAZAR(request):
     return render (request,'MAINBAZAR/mainbazar.html')
 
 def MAINBAZARSINGLEDIGIT(request):
-    return render (request,'MAINBAZAR/single_digit.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        mbsd=Main_Bazar_SingleDigit(user=user,session=session,digit=digit,points=points,date=datetime.today())
+        mbsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('mainbazar')
+     return render (request,'MAINBAZAR/single_digit.html')
 
 def MAINBAZARJODIDIGIT(request):
-    return render (request,'MAINBAZAR/jodi_digit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        mbjd=Main_Bazar_JodiDigit(user=user,digit=digit,points=points,date=datetime.today())
+        mbjd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('mainbazar')
+     return render (request,'MAINBAZAR/jodi_digit.html')
 
 def MAINBAZARSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mbsp=Main_Bazar_SinglePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mbsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('mainbazar')
     return render (request,'MAINBAZAR/singlepanna.html')
 
 def MAINBAZARDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mbdp=Main_Bazar_DoublePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mbdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('mainbazar')
     return render (request,'MAINBAZAR/doublepanna.html')
 
 def MAINBAZARTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        mbtp=Main_Bazar_TriplePana(user=user,session=session,pana=pana,points=points,date=datetime.today())
+        mbtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('mainbazar')
     return render (request,'MAINBAZAR/triplepanna.html')
 
 def MAINBAZARHALFSANGAM(request):
-    return render (request,'MAINBAZAR/halfsangam.html')
+     if request.method=="POST":
+        user=request.user
+        session=request.POST.get('session')
+        open_digit=request.POST.get('open_digit')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        mbhs=Main_Bazar_HalfSangam(user=user,session=session,open_digit=open_digit,close_pana=close_pana,points=points,date=datetime.today())
+        mbhs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('mainbazar')
+     return render (request,'MAINBAZAR/halfsangam.html')
 
 def MAINBAZARFULLSANGAM(request):
-    return render (request,'MAINBAZAR/fullsangam.html')
+     if request.method=="POST":
+        user=request.user
+        open_pana=request.POST.get('open_pana')
+        close_pana=request.POST.get('close_pana')
+        points=request.POST.get('points')
+        mbfs=Main_Bazar_FullSangam(user=user,open_pana=open_pana,close_pana=close_pana,points=points,date=datetime.today())
+        mbfs.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('mainbazar')
+     return render (request,'MAINBAZAR/fullsangam.html')
 # MAIN BAZAR END
 # STARLINE TIME 
 def TENAM(request):

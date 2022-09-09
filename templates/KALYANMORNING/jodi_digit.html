@@ -68,8 +68,14 @@
   .col-75 {
     float: left;
     width: 75%;
+    
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
     margin-top: 6px;
   }
+
 
   /* Clear floats after the columns */
   .row:after {
@@ -94,7 +100,7 @@
   <div class="heading">KALAYAN MORNING (Jodi Digit)</div>
 </nav>
 <div class="container">
-  <form  method="POST" action="{%url 'kalyanmorningjodidigit'%}">
+  <form  method="POST" action="{%url 'kalyanmorningjodidigit'%}" method="POST">
     {% csrf_token %}
     <div class="row">
       <div class="col-25">
@@ -128,7 +134,7 @@
         <label for="fname">Points</label>
       </div>
       <div class="col-75">
-        <input type="text"  name="points">
+        <input type="text"  name="points" Required>
       </div>
     </div>
     <div class="row">

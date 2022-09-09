@@ -68,8 +68,14 @@
   .col-75 {
     float: left;
     width: 75%;
+    
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
     margin-top: 6px;
   }
+
 
   .col-75 input[type=radio]:nth-child(2) {
     margin-left: 25%;
@@ -98,13 +104,14 @@
   <div class="heading">MADHUR NIGHT  (Half Sangam)</div>
 </nav>
 <div class="container">
-  <form action="/action_page.php">
+  <form action="{%url 'madhurnighthalfsangam'%}" method="POST">
+    {% csrf_token %}
     <div class="row">
       <div class="col-25">
         <label for="fname">Date</label>
       </div>
       <div class="col-75">
-        <input type="text" id="today_date" id="fname" name="p_pay" readonly>
+        <input type="text" id="today_date"  readonly>
       </div>
     </div>
     <div class="row">
@@ -112,8 +119,8 @@
         <label for="fname">Session</label>
       </div>
       <div class="col-75">
-        <input type="radio" name="session">Open
-        <input type="radio" name="session">Close
+        <input type="radio" name="session" value="open"Required>Open
+        <input type="radio" name="session" value="close"Required>Close
       </div>
     </div>
     <div class="row">
@@ -121,7 +128,7 @@
         <label for="fname">Open Digit</label>
       </div>
       <div class="col-75">
-        <select Required>
+        <select name="open_digit" Required>
           <option>Enter Digit</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -140,7 +147,7 @@
           <label for="fname">Close Digit</label>
         </div>
         <div class="col-75">
-          <select Required>
+          <select name="close_digit" Required>
             <option>Enter Digit</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -159,7 +166,7 @@
           <label for="fname">Points</label>
         </div>
         <div class="col-75">
-          <input type="text" id="fname" name="p_pay">
+          <input type="text"  name="points"Required>
         </div>
       </div>
     <div class="row">

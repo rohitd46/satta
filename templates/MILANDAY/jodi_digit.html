@@ -68,6 +68,11 @@
   .col-75 {
     float: left;
     width: 75%;
+    
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
     margin-top: 6px;
   }
 
@@ -94,13 +99,14 @@
   <div class="heading">MILAN DAY (Jodi Digit)</div>
 </nav>
 <div class="container">
-  <form action="/action_page.php">
+  <form action="{%url 'milandayjodidigit'%}" method="POST">
+    {% csrf_token %}
     <div class="row">
       <div class="col-25">
         <label for="fname">Date</label>
       </div>
       <div class="col-75">
-        <input type="text" id="today_date" id="fname" name="p_pay" readonly> 
+        <input type="text" id="today_date"  readonly> 
       </div>
     </div>
     <div class="row">
@@ -108,7 +114,7 @@
         <label for="fname">Digit</label>
       </div>
       <div class="col-75">  
-        <select Required>
+        <select name="digit" Required>
           <option>Enter Digit</option>
           <option value="00">00</option>
           <option value="01">01</option>
@@ -127,7 +133,7 @@
         <label for="fname">Points</label>
       </div>
       <div class="col-75">
-        <input type="text" id="fname" name="p_pay">
+        <input type="text"  name="points"Required>
       </div>
     </div>
     <div class="row">

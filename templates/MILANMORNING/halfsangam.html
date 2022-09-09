@@ -68,12 +68,14 @@
   .col-75 {
     float: left;
     width: 75%;
+    
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 12px;
     margin-top: 6px;
   }
+
 
   .col-75 input[type=radio]:nth-child(2) {
     margin-left: 25%;
@@ -109,7 +111,7 @@
         <label for="fname">Date</label>
       </div>
       <div class="col-75">
-        <input type="text" id="today_date" id="fname" readonly>
+        <input type="text" id="today_date"  readonly>
       </div>
     </div>
     <div class="row">
@@ -117,8 +119,8 @@
         <label for="fname">Session</label>
       </div>
       <div class="col-75">
-        <input type="radio" name="session"value="open">Open
-        <input type="radio" name="session"value="close">Close
+        <input type="radio" name="session"value="open"Required>Open
+        <input type="radio" name="session"value="close"Required>Close
       </div>
     </div>
     <div class="row">
@@ -164,7 +166,7 @@
           <label for="fname">Points</label>
         </div>
         <div class="col-75">
-          <input type="text" id="fname" name="points">
+          <input type="text" id="fname" name="points"Required>
         </div>
       </div>
     <div class="row">

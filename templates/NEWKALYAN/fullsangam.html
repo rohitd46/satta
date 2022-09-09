@@ -68,8 +68,14 @@
   .col-75 {
     float: left;
     width: 75%;
+    
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
     margin-top: 6px;
   }
+
 
   .col-75 input[type=radio]:nth-child(2) {
     margin-left: 25%;
@@ -98,13 +104,14 @@
   <div class="heading">NEW KALYAN (Full Sangam)</div>
 </nav>
 <div class="container">
-  <form action="/action_page.php">
+  <form action="{%url 'newkalyanfullsangam'%}" method="POST">
+    {% csrf_token %}
     <div class="row">
       <div class="col-25">
         <label for="fname">Date</label>
       </div>
       <div class="col-75">
-        <input type="text" id="today_date" id="fname" name="p_pay" readonly>
+        <input type="text" id="today_date"  readonly>
       </div>
     </div>
     
@@ -113,7 +120,7 @@
         <label for="fname">Open Pana</label>
       </div>
       <div class="col-75">
-        <select Required>
+        <select name="open_pana" Required>
           <option>Enter Digit</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -132,7 +139,7 @@
           <label for="fname">Close Pana</label>
         </div>
         <div class="col-75">
-          <select Required>
+          <select name="close_pana" Required>
             <option>Enter Digit</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -151,7 +158,7 @@
           <label for="fname">Points</label>
         </div>
         <div class="col-75">
-          <input type="text" id="fname" name="p_pay">
+          <input type="text" name="points"Required>
         </div>
       </div>
     <div class="row">
