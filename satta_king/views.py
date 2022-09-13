@@ -13,6 +13,7 @@ from django.contrib.auth import update_session_auth_hash
 from .helpes import send_forget_password_mail
 import uuid
 
+import time
 
 
 
@@ -81,15 +82,17 @@ def ForgetPassword(request):
             messages.info(request,"No User Found with this Phone Number.")
             return redirect('forgetpassword')
         
-        user_obj=User.objects.get(username=username)
+        user=User.objects.get(username=username)
         token=str(uuid.uuid4())
-        print(user_obj)
-        profile_obj=Profile.objects.get(user=user_obj)
-        print(profile_obj)
+        print(user)
+        print(token)
+        profile_obj=Profile.objects.get(user=user)
         profile_obj.forget_password_token=token
-        
+        print(user)
+        print(token)
         profile_obj.save()
-        send_forget_password_mail(user_obj.email,token)
+        print(user.email)
+        send_forget_password_mail(user.email,token)
         messages.info(request,"Email Send To Your Register Email ID.")
         return redirect('forgetpassword')
             
@@ -101,14 +104,37 @@ def ResetPassword(request, token):
     }
     profile_obj=Profile.objects.filter(forget_password_token=token).first()
     print(profile_obj)
-    return render(request,'resetpassword.html')
+    context={'user_id': profile_obj.user.id}
+    
+    if request.method=="POST":
+        newpassword=request.POST.get("newpassword")
+        cpassword=request.POST.get("cpassword")
+        user_id=request.POST.get('user_id')
+        
+        if user_id is None:
+            messages.info(request,"No User Found!!.")
+            return redirect(f'resetpassword/<token>/')
+        
+        if newpassword != cpassword:
+            messages.info(request,"Both Password Should be same..")
+            return redirect(f'resetpassword/<token>/')
+        
+        user_obj=User.objects.get(id=user_id)
+        user_obj.set_password(newpassword)
+        user_obj.save()
+        messages.info(request,"Password Change Sucessfully")
+        return redirect('login')
+    
+    
+    return render(request,'resetpassword.html',context)
 
 
 
 
 @login_required(login_url='/')
 def Home(request):
-    return render(request,'index.html')
+    img=Images.objects.all()
+    return render(request,'index.html',{'img': img})
 
 def Wallet(request):
     point=POINTS.objects.filter(user=request.user)
@@ -166,17 +192,15 @@ def ADDPOINT(request):
         amount=int(request.POST.get('amount'))*100
         print(amount,user)
      
-        client=razorpay.Client(auth=("rzp_test_z4jsh2NBxCwEns" ,"7HIjeNqkGiUoyvYkRVqVuguL"))
+        client=razorpay.Client(auth=("rzp_test_Q4FD3QJBqaCd1a" ,"x0ZF9dfmlSEFtC7wwzEc9J4j"))
         payment=client.order.create({'amount' :amount,'currency': 'INR','payment_capture':'1'})
-        payment_id=payment['id']
-        # print(payment)
-        context={
-            'amount':amount,
-            'order_id':payment_id
-        }
         
-        return render (request,'add_point.html',context)
+        print(payment)
+        return render (request,'success.html',{'payment': payment})
     return render (request,'add_point.html')
+
+def Success(request):
+    return render (request,"success.html")
 
 def STARLINE(request):
     return render (request,'starline.html')
@@ -1975,165 +1999,616 @@ def TENPM(request):
 # STARLINE TIME END
 # 10:00 AM START
 def TENAMSINGLEDIGIT(request):
-    return render (request,'10AM/singledigit.html')
+     if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        tenamsd=Ten_AM_SingleDigit(user=user,digit=digit,points=points,date=datetime.today())
+        tenamsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('10am')
+     return render (request,'10AM/singledigit.html')
 def TENAMSINGLEPANA(request):
-    return render (request,'10AM/singlepana.html')
+     if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        tenamsp=Ten_AM_SinglePana(user=user,pana=pana,points=points,date=datetime.today())
+        tenamsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('10am')
+     return render (request,'10AM/singlepana.html')
 def TENAMDOUBLEPANA(request):
-    return render (request,'10AM/doublepana.html')
+     if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        tenamdp=Ten_AM_DoublePana(user=user,pana=pana,points=points,date=datetime.today())
+        tenamdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('10am')
+     return render (request,'10AM/doublepana.html')
 def TENAMTRIPLEPANA(request):
-    return render (request,'10AM/triplepana.html')
+     if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        tenamtp=Ten_AM_TriplePana(user=user,pana=pana,points=points,date=datetime.today())
+        tenamtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('10am')
+     return render (request,'10AM/triplepana.html')
 # 11AM START
 def ELEVENAMSINGLEDIGIT(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        eamsd=Eleven_AM_SingleDigit(user=user,digit=digit,points=points,date=datetime.today())
+        eamsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('11am')
     return render (request,'11AM/singledigit.html')
+
 def ELEVENAMSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        eamsp=Eleven_AM_SinglePana(user=user,pana=pana,points=points,date=datetime.today())
+        eamsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('11am')
     return render (request,'11AM/singlepana.html')
+
 def ELEVENAMDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        eamdp=Eleven_AM_DoublePana(user=user,pana=pana,points=points,date=datetime.today())
+        eamdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('11am')
     return render (request,'11AM/doublepana.html')
+
 def ELEVENAMTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        eamtp=Eleven_AM_TriplePana(user=user,pana=pana,points=points,date=datetime.today())
+        eamtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('11am')
     return render (request,'11AM/triplepana.html')
 # 12PM
 def TWELEPMSINGLEDIGIT(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        tvelpmsd=Twelve_PM_SingleDigit(user=user,digit=digit,points=points,date=datetime.today())
+        tvelpmsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('12pm')
     return render (request,'12PM/singledigit.html')
 
 def TWELEPMSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        tvelpmsp=Twelve_PM_SinglePana(user=user,pana=pana,points=points,date=datetime.today())
+        tvelpmsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('12pm')
     return render (request,'12PM/singlepana.html')
 
 def TWELEPMDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        tvelpmdp=Twelve_PM_DoublePana(user=user,pana=pana,points=points,date=datetime.today())
+        tvelpmdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('12pm')
     return render (request,'12PM/doublepana.html')
 
 def TWELEPMTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        tvelpmtp=Twelve_PM_TriplePana(user=user,pana=pana,points=points,date=datetime.today())
+        tvelpmtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('12pm')
     return render (request,'12PM/triplepana.html')
 # 01PM
 def ONEPMSINGLEDIGIT(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        onepmsd=One_PM_SingleDigit(user=user,digit=digit,points=points,date=datetime.today())
+        onepmsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('01pm')
     return render (request,'01PM/singledigit.html')
 
 def ONEPMSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        onepmsp=One_PM_SinglePana(user=user,pana=pana,points=points,date=datetime.today())
+        onepmsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('01pm')
     return render (request,'01PM/singlepana.html')
 
 def ONEPMDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        onepmdp=One_PM_DoublePana(user=user,pana=pana,points=points,date=datetime.today())
+        onepmdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('01pm')
     return render (request,'01PM/doublepana.html')
 
 def ONEPMTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        onepmtp=One_PM_TriplePana(user=user,pana=pana,points=points,date=datetime.today())
+        onepmtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('01pm')
     return render (request,'01PM/triplepana.html')
 # 02PM
 def TWOPMSINGLEDIGIT(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        twopmsd=Two_PM_SingleDigit(user=user,digit=digit,points=points,date=datetime.today())
+        twopmsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('02pm')
     return render (request,'02PM/singledigit.html')
 
 def TWOPMSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        twopmsp=Two_PM_SinglePana(user=user,pana=pana,points=points,date=datetime.today())
+        twopmsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('02pm')
     return render (request,'02PM/singlepana.html')
 
 def TWOPMDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        twopmdp=Two_PM_DoublePana(user=user,pana=pana,points=points,date=datetime.today())
+        twopmdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('02pm')
     return render (request,'02PM/doublepana.html')
 
 def TWOPMTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        twopmtp=Two_PM_TriplePana(user=user,pana=pana,points=points,date=datetime.today())
+        twopmtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('02pm')
     return render (request,'02PM/triplepana.html')
 # 03PM
 def THREEPMSINGLEDIGIT(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        threepmsd=Three_PM_SingleDigit(user=user,digit=digit,points=points,date=datetime.today())
+        threepmsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('03pm')
     return render (request,'03PM/singledigit.html')
 
 def THREEPMSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        threepmsp=Three_PM_SinglePana(user=user,pana=pana,points=points,date=datetime.today())
+        threepmsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('03pm')
     return render (request,'03PM/singlepana.html')
 
 def THREEPMDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        threepmdp=Three_PM_DoublePana(user=user,pana=pana,points=points,date=datetime.today())
+        threepmdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('03pm')
     return render (request,'03PM/doublepana.html')
 
 def THREEPMTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        threepmtp=Three_PM_TriplePana(user=user,pana=pana,points=points,date=datetime.today())
+        threepmtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('03pm')
     return render (request,'03PM/triplepana.html')
 # 04PM
 def FOURPMSINGLEDIGIT(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        fourpmsd=Four_PM_SingleDigit(user=user,digit=digit,points=points,date=datetime.today())
+        fourpmsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('04pm')
     return render (request,'04PM/singledigit.html')
 
 def FOURPMSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        fourpmsp=Four_PM_SinglePana(user=user,pana=pana,points=points,date=datetime.today())
+        fourpmsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('04pm')
     return render (request,'04PM/singlepana.html')
 
 def FOURPMDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        fourpmdp=Four_PM_DoublePana(user=user,pana=pana,points=points,date=datetime.today())
+        fourpmdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('04pm')
     return render (request,'04PM/doublepana.html')
 
 def FOURPMTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        fourpmtp=Four_PM_TriplePana(user=user,pana=pana,points=points,date=datetime.today())
+        fourpmtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('04pm')
     return render (request,'04PM/triplepana.html')
 # 05 PM
 def FIVEPMSINGLEDIGIT(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        fivepmsd=Five_PM_SingleDigit(user=user,digit=digit,points=points,date=datetime.today())
+        fivepmsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('05pm')
     return render (request,'05PM/singledigit.html')
 
 def FIVEPMSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        fivepmsp=Five_PM_SinglePana(user=user,pana=pana,points=points,date=datetime.today())
+        fivepmsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('05pm')
     return render (request,'05PM/singlepana.html')
 
 def FIVEPMDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        fivepmdp=Five_PM_DoublePana(user=user,pana=pana,points=points,date=datetime.today())
+        fivepmdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('05pm')
     return render (request,'05PM/doublepana.html')
 
 def FIVEPMTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        fivepmtp=Five_PM_TriplePana(user=user,pana=pana,points=points,date=datetime.today())
+        fivepmtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('05pm')
     return render (request,'05PM/triplepana.html')
 # 06PM
 def SIXPMSINGLEDIGIT(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        sixpmsd=Six_PM_SingleDigit(user=user,digit=digit,points=points,date=datetime.today())
+        sixpmsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('06pm')
     return render (request,'06PM/singledigit.html')
 
 def SIXPMSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sixpmsp=Six_PM_SinglePana(user=user,pana=pana,points=points,date=datetime.today())
+        sixpmsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('06pm')
     return render (request,'06PM/singlepana.html')
 
 def SIXPMDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sixpmdp=Six_PM_DoublePana(user=user,pana=pana,points=points,date=datetime.today())
+        sixpmdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('10am')
     return render (request,'06PM/doublepana.html')
 
 def SIXPMTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sixpmtp=Six_PM_TriplePana(user=user,pana=pana,points=points,date=datetime.today())
+        sixpmtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('06pm')
     return render (request,'06PM/triplepana.html')
 # 07PM
 def SEVENPMSINGLEDIGIT(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        sevenpmsd=Seven_PM_SingleDigit(user=user,digit=digit,points=points,date=datetime.today())
+        sevenpmsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('07pm')
     return render (request,'07PM/singledigit.html')
 
 def SEVENPMSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sevenpmsp=Seven_PM_SinglePana(user=user,pana=pana,points=points,date=datetime.today())
+        sevenpmsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('07pm')
     return render (request,'07PM/singlepana.html')
 
 def SEVENPMDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sevenpmdp=Seven_PM_DoublePana(user=user,pana=pana,points=points,date=datetime.today())
+        sevenpmdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('07pm')
     return render (request,'07PM/doublepana.html')
 
 def SEVENPMTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        sevenpmtp=Seven_PM_TriplePana(user=user,pana=pana,points=points,date=datetime.today())
+        sevenpmtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('07pm')
     return render (request,'07PM/triplepana.html')
 # 08PM
 def EIGHTPMSINGLEDIGIT(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        eightpmsd=Eight_PM_SingleDigit(user=user,digit=digit,points=points,date=datetime.today())
+        eightpmsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('08pm')
     return render (request,'08PM/singledigit.html')
 
 def EIGHTPMSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        eightpmsp=Eight_PM_SinglePana(user=user,pana=pana,points=points,date=datetime.today())
+        eightpmsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('08pm')
     return render (request,'08PM/singlepana.html')
 
 def EIGHTPMDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        eightpmdp=Eight_PM_DoublePana(user=user,pana=pana,points=points,date=datetime.today())
+        eightpmdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('08pm')
     return render (request,'08PM/doublepana.html')
 
 def EIGHTPMTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        eightpmtp=Eight_PM_TriplePana(user=user,pana=pana,points=points,date=datetime.today())
+        eightpmtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('08pm')
     return render (request,'08PM/triplepana.html')
 # 09PM
 def NINEPMSINGLEDIGIT(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        ninepmsd=Nine_PM_SingleDigit(user=user,digit=digit,points=points,date=datetime.today())
+        ninepmsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('09pm')
     return render (request,'09PM/singledigit.html')
 
 def NINEPMSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        ninepmsp=Nine_PM_SinglePana(user=user,pana=pana,points=points,date=datetime.today())
+        ninepmsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('09pm')
     return render (request,'09PM/singlepana.html')
 
 def NINEPMDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        ninepmdp=Nine_PM_DoublePana(user=user,pana=pana,points=points,date=datetime.today())
+        ninepmdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('09pm')
     return render (request,'09PM/doublepana.html')
 
 def NINEPMTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        ninepmtp=Nine_PM_TriplePana(user=user,pana=pana,points=points,date=datetime.today())
+        ninepmtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('09pm')
     return render (request,'09PM/triplepana.html')
 # 10PM
 def TENPMSINGLEDIGIT(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        tenpmsd=Ten_PM_SingleDigit(user=user,digit=digit,points=points,date=datetime.today())
+        tenpmsd.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('10pm')
     return render (request,'10PM/singledigit.html')
 
 def TENPMSINGLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        tenpmsp=Ten_PM_SinglePana(user=user,pana=pana,points=points,date=datetime.today())
+        tenpmsp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('10pm')
     return render (request,'10PM/singlepana.html')
 
 def TENPMDOUBLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        tenpmdp=Ten_PM_DoublePana(user=user,pana=pana,points=points,date=datetime.today())
+        tenpmdp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('10pm')
     return render (request,'10PM/doublepana.html')
 
 def TENPMTRIPLEPANA(request):
+    if request.method=="POST":
+        user=request.user
+        pana=request.POST.get('pana')
+        points=request.POST.get('points')
+        tenpmtp=Ten_PM_TriplePana(user=user,pana=pana,points=points,date=datetime.today())
+        tenpmtp.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('10pm')
     return render (request,'10PM/triplepana.html')
 # GALIDISAWAR
 def DISAWAR(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        dis=Disawar(user=user,digit=digit,points=points,date=datetime.today())
+        dis.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('disawar')
     return render (request,'Galidisawar/disawar.html')
 
 def FARIDABAAD(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        faridabad=Faridabaad(user=user,digit=digit,points=points,date=datetime.today())
+        faridabad.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('faribadaad')
     return render (request,'Galidisawar/faridabaad.html')
 
 def GAZIABAAD(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        gaziabad=Gaziabaad(user=user,digit=digit,points=points,date=datetime.today())
+        gaziabad.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('gaziabaad')
     return render (request,'Galidisawar/gaziabaad.html')
 
 def GALI(request):
+    if request.method=="POST":
+        user=request.user
+        digit=request.POST.get('digit')
+        points=request.POST.get('points')
+        gali=Gali(user=user,digit=digit,points=points,date=datetime.today())
+        gali.save()
+        messages.info(request,"Your Bid Recived.Thank You!! ")
+        return redirect('gali')
     return render (request,'Galidisawar/gali.html')
 
 

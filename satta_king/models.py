@@ -1,3 +1,4 @@
+from ast import mod
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -1429,5 +1430,508 @@ class Main_Bazar_FullSangam(models.Model):
      
      def __str__(self):
         return self.user.first_name
+# staline Time
+class Ten_AM_SingleDigit(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
 
 
+class Ten_AM_SinglePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Ten_AM_DoublePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Ten_AM_TriplePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Eleven_AM_SingleDigit(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Eleven_AM_SinglePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Eleven_AM_DoublePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Eleven_AM_TriplePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Twelve_PM_SingleDigit(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Twelve_PM_SinglePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Twelve_PM_DoublePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Twelve_PM_TriplePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class One_PM_SingleDigit(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class One_PM_SinglePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class One_PM_DoublePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class One_PM_TriplePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Two_PM_SingleDigit(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Two_PM_SinglePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Two_PM_DoublePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Two_PM_TriplePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Three_PM_SingleDigit(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Three_PM_SinglePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Three_PM_DoublePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Three_PM_TriplePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Four_PM_SingleDigit(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Four_PM_SinglePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Four_PM_DoublePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Four_PM_TriplePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Five_PM_SingleDigit(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Five_PM_SinglePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Five_PM_DoublePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Five_PM_TriplePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Six_PM_SingleDigit(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Six_PM_SinglePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Six_PM_DoublePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Six_PM_TriplePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Seven_PM_SingleDigit(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Seven_PM_SinglePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Seven_PM_DoublePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Seven_PM_TriplePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Eight_PM_SingleDigit(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Eight_PM_SinglePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Eight_PM_DoublePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Eight_PM_TriplePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Nine_PM_SingleDigit(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Nine_PM_SinglePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Nine_PM_DoublePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Nine_PM_TriplePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Ten_PM_SingleDigit(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Ten_PM_SinglePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Ten_PM_DoublePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Ten_PM_TriplePana(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   pana=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Disawar(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+   
+class Faridabaad(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Gali(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name
+
+class Gaziabaad(models.Model):
+   user = models.ForeignKey(User,on_delete=models.CASCADE)
+   date=models.DateField()
+   digit=models.IntegerField(null=True)
+   points=models.IntegerField(null=True)
+     
+   def __str__(self):
+      return self.user.first_name

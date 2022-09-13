@@ -131,7 +131,7 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_HOST_USER= "onlinesattaking83@gmail.com"
 EMAIL_HOST_PASSWORD = 'iinctrpnintoxsul'
-EMAIL_USE_TLS =True
+EMAIL_USE_TLS =True 
 
 
 # Default primary key field type

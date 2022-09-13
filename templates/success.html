@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Add- {{payment.amount}} Rs</h2>
+</body>
+<<button id="rzp-button1">Pay</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "YOUR_KEY_ID", // Enter the Key ID generated from the Dashboard
+    "amount": "{payment.amount}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "{payment.id}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+    "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "gaurav.kumar@example.com",
+        "contact": "9999999999"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+
+</html>
+
+{% comment %} {% extends 'base.html' %}
+{% block content %}
+    <form action="{{ url_for('processing_checkout_payment', cart_id=page_data['cart_id'], order_id=page_data['order_id']) }}" method="POST" id="pay">
+        <script
+                src="https://checkout.razorpay.com/v1/checkout.js"
+                data-key="{{ page_data['api_key'] }}"
+                data-amount="{{ page_data['total_checkout_amount'] * 100 }}"
+                data-name="Bharat Village Bazar"
+                data-description="Bharat Village Bazar Payment"
+                data-image=""
+                data-netbanking="true"
+                data-prefill.name="{{ page_data['user_info']['name'] }}"
+                data-prefill.email="{{ page_data['user_info']['email'] }}"
+                data-prefill.contact="{{ page_data['user_info']['phone_number'] }}"
+                data-notes.shopping_order_id="{{ page_data["order_id"] }}">
+        </script>
+        <input type="hidden" name="shopping_order_id" value="{{ page_data['order_id'] }}">
+    </form>
+    <div style="height: 100vh"></div>
+{% endblock content %}
+{% block js %}
+    <script>
+        let pay = document.getElementsByClassName('razorpay-payment-button');
+
+        pay[0].click();
+    </script>
+{% endblock js %} {% endcomment %}
