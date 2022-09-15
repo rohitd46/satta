@@ -97,7 +97,8 @@
       border: 5px solid crimson;
       cursor: pointer;
       font-size: 13px;
-      border-radius: 30px
+      border-radius: 30px;
+      color: white;
     
       
     }
@@ -205,253 +206,499 @@
 
     .base_Timing span {
       font-size: 13px;
+      color: white;
+    }
+    p{
+
+      font-size: 25px;
     }
   </style>
   <div class="left text-center">
     <h3>MILAN MORNING</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Milan Morning'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'milan_morning'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10  am</span>
+    {% if Time%}
+    {% for t in Time  %}
+    {% if t.title == 'Milan Morning'%}
+      <span>Open Time  : {{t.Opne_Time}} AM</span>
+      <span>Close Time : {{t.Close_Time}} AM</span>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
 
   <div class="main text-center">
     <h3>WELCOME MORNING</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Welcome Morning'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'welcome_morning'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+    {% for t in Time  %}
+    {% if t.title == 'Welcome Morning'%}
+      <span>Open Time  : {{t.Opne_Time}} AM</span>
+      <span>Close Time : {{t.Close_Time}} AM</span>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
 
   <div class="right text-center">
     <h3>KALYAN MORNING</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Kalyan Morning'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'kalyan_morning'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+    {% for t in Time  %}
+    {% if t.title == 'Kalyan Morning'%}
+      <span>Open Time  : {{t.Opne_Time}} AM</span>
+      <span>Close Time : {{t.Close_Time}} AM</span>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
   <div class="left text-center">
     <h3>MADHUR MORNING</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Madhur Morning'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'madhur_morning'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+    {% for t in Time  %}
+    {% if t.title == 'Madhur Morning'%}
+      <span>Open Time  : {{t.Opne_Time}} AM</span>
+      <span>Close Time : {{t.Close_Time}} PM</span>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
 
   <div class="main text-center">
     <h3>SRIDEVI</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Sridevi'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'sridevi'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+    {% for t in Time  %}
+    {% if t.title == 'Sridevi'%}
+      <span>Open Time  : {{t.Opne_Time}} AM</span>
+      <span>Close Time : {{t.Close_Time}} PM</span>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
 
   <div class="right text-center">
     <h3>TIME BAZAR</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Time Bazar'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'timebazar'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+    {% for t in Time  %}
+    {% if t.title == 'Time Bazar'%}
+      <span>Open Time  : {{t.Opne_Time}} PM</span>
+      <span>Close Time : {{t.Close_Time}} PM</span>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
   <div class="left text-center">
     <h3>MADHUR DAY</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Madhur Day'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'madhurday'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+    {% for t in Time  %}
+    {% if t.title == 'Madhur Day'%}
+      <span>Open Time  : {{t.Opne_Time}} PM</span>
+      <span>Close Time : {{t.Close_Time}} PM</span>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
 
   <div class="main text-center">
     <h3>NEW KALYAN</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'New Kalyan'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'newkalyan'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+      {% for t in Time  %}
+      {% if t.title == 'New Kalyan'%}
+        <span>Open Time  : {{t.Opne_Time}} PM</span>
+        <span>Close Time : {{t.Close_Time}} PM</span>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
     </div>
   </div>
   <div class="right text-center">
     <h3>MILAN DAY</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Milan Day'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'milanday'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+    {% for t in Time  %}
+    {% if t.title == 'Milan Day'%}
+      <span>Open Time  : {{t.Opne_Time}} PM</span>
+      <span>Close Time : {{t.Close_Time}} PM</span>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
 
   <div class="right text-center">
     <h3>RAJDHANI DAY</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Rajdhani Day'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'rajdhaniday'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+      {% for t in Time  %}
+      {% if t.title == 'Rajdhani Day'%}
+        <span>Open Time  : {{t.Opne_Time}} PM</span>
+        <span>Close Time : {{t.Close_Time}} PM</span>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
     </div>
   </div>
   <div class="left text-center">
     <h3>SUPREME DAY</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Supreme Day'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'supremeday'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+      {% for t in Time  %}
+      {% if t.title == 'Supreme Day'%}
+        <span>Open Time  : {{t.Opne_Time}} PM</span>
+        <span>Close Time : {{t.Close_Time}} PM</span>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
     </div>
   </div>
   <div class="right text-center">
     <h3>KALYAN</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Kalyan'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'kalyan'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+    {% for t in Time  %}
+    {% if t.title == 'Kalyan'%}
+      <span>Open Time  : {{t.Opne_Time}} PM</span>
+      <span>Close Time : {{t.Close_Time}} PM</span>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
 
   <div class="right text-center">
     <h3>SRIDEVI NIGHT</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Sridevi Night'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'sridevinight'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+    {% for t in Time  %}
+    {% if t.title == 'Sridevi Night'%}
+      <span>Open Time  : {{t.Opne_Time}} PM</span>
+      <span>Close Time : {{t.Close_Time}} PM</span>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
+  
   <div class="right text-center">
     <h3>MADHUR NIGHT</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Madhur Night'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'madhurnight'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+    {% for t in Time  %}
+    {% if t.title == 'Madhur Night'%}
+      <span>Open Time  : {{t.Opne_Time}} PM</span>
+      <span>Close Time : {{t.Close_Time}} PM</span>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
   <div class="right text-center">
     <h3>NEW MAIN MUMBAI</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'New Main Mumbai'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'newmainmumbai'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+      {% for t in Time  %}
+      {% if t.title == 'New Main Mumbai'%}
+        <span>Open Time  : {{t.Opne_Time}} PM</span>
+        <span>Close Time : {{t.Close_Time}} PM</span>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
     </div>
   </div>
   <div class="right text-center">
     <h3>SUPREME NIGHT</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Supreme Night'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'supremenight'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+      {% for t in Time  %}
+      {% if t.title == 'Supreme Night'%}
+        <span>Open Time  : {{t.Opne_Time}} PM</span>
+        <span>Close Time : {{t.Close_Time}} PM</span>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
     </div>
   </div>
   <div class="right text-center">
     <h3>MILAN NIGHT</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Milan Night'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'milannight'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+    {% for t in Time  %}
+    {% if t.title == 'Milan Night'%}
+      <span>Open Time  : {{t.Opne_Time}} PM</span>
+      <span>Close Time : {{t.Close_Time}} PM</span>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
   <div class="right text-center">
     <h3>KALYAN NIGHT</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Kalyan Night'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'kalyannight'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+    {% for t in Time  %}
+    {% if t.title == 'Kalyan Night'%}
+      <span>Open Time  : {{t.Opne_Time}} PM</span>
+      <span>Close Time : {{t.Close_Time}} PM</span>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
   <div class="right text-center">
     <h3>RAJDHANI NIGHT</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Rajdhani Night'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'rajdhaninight'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+    {% for t in Time  %}
+    {% if t.title == 'Rajdhani Night'%}
+      <span>Open Time  : {{t.Opne_Time}} PM</span>
+      <span>Close Time : {{t.Close_Time}} PM</span>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
   <div class="right text-center">
     <h3>MAIN BAZAR</h3>
-    <p>XXX-XX-XXX</P>
+    {% if number%}
+    {% for num in number  %}
+    {% if num.title == 'Main Bazar'%}
+    <p>{{num.Number}}</P>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     <div class="btn_section">
       <a href="https://luxmatka.club/main-market-chart.php" class="btn">Chart</a>
       <a href="{%url 'mainbazar'%}" class="my">Open</a>
     </div>
     <div class="base_Timing">
-      <span>Open Time : 10:10 am</span>
-      <span>Close Time : 10:10 am</span>
+      {% if Time%}
+    {% for t in Time  %}
+    {% if t.title == 'Main Bazar'%}
+      <span>Open Time  : {{t.Opne_Time}} PM</span>
+      <span>Close Time : {{t.Close_Time}} PM</span>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
     </div>
   </div>
 

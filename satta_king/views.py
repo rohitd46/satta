@@ -1,5 +1,6 @@
 from http import client
-from turtle import update
+from tokenize import Number
+from turtle import title, update
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib.auth.decorators import login_required
@@ -134,7 +135,15 @@ def ResetPassword(request, token):
 @login_required(login_url='/')
 def Home(request):
     img=Images.objects.all()
-    return render(request,'index.html',{'img': img})
+    numbers=DailyBazar.objects.all()
+    Time=DailyTime.objects.all()
+    data={
+        'img': img,
+        'number':numbers,
+        'Time': Time
+        
+    }
+    return render(request,'index.html',data)
 
 def Wallet(request):
     point=POINTS.objects.filter(user=request.user)
@@ -203,13 +212,26 @@ def Success(request):
     return render (request,"success.html")
 
 def STARLINE(request):
-    return render (request,'starline.html')
+    number=Starline.objects.all()
+    Time=StarlineTime.objects.all()
+    data={
+        'number': number,
+        'Time': Time
+    }
+    return render (request,'starline.html',data)
 
 def GALIDISWAR(request):
-    return render (request,'galidiswar.html')
+    number=GaliDisawar.objects.all()
+    Time=GaliDisawarTime.objects.all()
+    data={
+        'number': number,
+        'Time': Time   
+        }
+    return render (request,'galidiswar.html',data)
 # sidebar end
 # MILAN MORNING START
 def MILANMORING(request):
+   
     return render (request,'MILANMORNING/millanmoring.html')
 
 def MILANMORNINGSINGLEDIGIT(request):

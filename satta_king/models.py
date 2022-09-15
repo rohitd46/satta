@@ -1,4 +1,5 @@
 from ast import mod
+from pickle import TRUE
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -30,6 +31,138 @@ class MANAGEBANK(models.Model):
    
    def __str__(self):
         return self.user.first_name
+
+
+class DailyBazar(models.Model):
+   Day_Choice=(
+      ('Milan Morning','MILAN MORNING'),
+      ('Welcome Morning','WELCOME MORNING'),
+      ('Kalyan Morning','KALYAN MORNING'),
+      ('Madhur Morning','MADHUR MORNING'),
+      ('Sridevi','SRIDEVI'),
+      ('Time Bazar','TIME BAZAR'),
+      ('Madhur Day','MADHUR DAY'),
+      ('New Kalyan','NEW KALYAN'),
+      ('Milan Day','MILAN DAY'),
+      ('Rajdhani Day','RAJDHANI DAY'),
+      ('Supreme Day','SUPREME DAY'),
+      ('Kalyan','KALYAN'),
+      ('Sridevi Night','SRIDEVI NIGHT'),
+      ('Madhur Night','MADHUR NIGHT'),
+      ('New Main Mumbai','NEW MAIN MUMBAI'),
+      ('Supreme Night','SUPREME NIGHT'),
+      ('Milan Night','MILAN NIGHT'),
+      ('Kalyan Night','KALYAN NIGHT'),
+      ('Rajdhani Night','RAJDHANI NIGHT'),
+      ('Main Bazar','MAIN BAZAR'),
+      
+   )
+   title=models.CharField(max_length=100, choices=Day_Choice)
+   Number=models.CharField(max_length=10)
+   Date=models.DateField(auto_now_add=True,null=True)
+   
+   def __str__(self):
+        return self.title
+     
+class Starline(models.Model):
+   Hour_Choice=(
+      ('10 AM','10 AM'),
+      ('11 AM','11 AM'),
+      ('12 PM','12 PM'),
+      ('01 PM','01 PM'),
+      ('02 PM','02 PM'),
+      ('03 PM','03 PM'),
+      ('04 PM','04 PM'),
+      ('05 PM','05 PM'),
+      ('06 PM','06 PM'),
+      ('07 PM','07 PM'),
+      ('08 PM','08 PM'),
+      ('09 PM','09 PM'),
+      ('10 PM','10 PM'),
+      
+   )
+   title=models.CharField(max_length=100, choices=Hour_Choice)
+   Number=models.CharField(max_length=5)
+   Date=models.DateField(auto_now_add=True,null=True)
+   
+   def __str__(self):
+        return self.title
+   
+class GaliDisawar(models.Model):
+   Hour_Choice=(
+      ('Disawar','Disawar'),
+      ('Faridabaad','Faridabaad'),
+      ('Gaziabaad','Gaziabaad'),
+      ('Gali','Gali'),
+      
+   )
+   title=models.CharField(max_length=100, choices=Hour_Choice)
+   Number=models.CharField(max_length=2)
+   Date=models.DateField(auto_now_add=True,null=True)
+   
+   def __str__(self):
+        return self.title
+   
+class DailyTime(models.Model):
+   Day_Choice=(
+      ('Milan Morning','MILAN MORNING'),
+      ('Welcome Morning','WELCOME MORNING'),
+      ('Kalyan Morning','KALYAN MORNING'),
+      ('Madhur Morning','MADHUR MORNING'),
+      ('Sridevi','SRIDEVI'),
+      ('Time Bazar','TIME BAZAR'),
+      ('Madhur Day','MADHUR DAY'),
+      ('New Kalyan','NEW KALYAN'),
+      ('Milan Day','MILAN DAY'),
+      ('Rajdhani Day','RAJDHANI DAY'),
+      ('Supreme Day','SUPREME DAY'),
+      ('Kalyan','KALYAN'),
+      ('Sridevi Night','SRIDEVI NIGHT'),
+      ('Madhur Night','MADHUR NIGHT'),
+      ('New Main Mumbai','NEW MAIN MUMBAI'),
+      ('Supreme Night','SUPREME NIGHT'),
+      ('Milan Night','MILAN NIGHT'),
+      ('Kalyan Night','KALYAN NIGHT'),
+      ('Rajdhani Night','RAJDHANI NIGHT'),
+      ('Main Bazar','MAIN BAZAR'),
+   )
+   title=models.CharField(max_length=100, choices=Day_Choice)
+   Opne_Time=models.CharField(max_length=5)
+   Close_Time=models.CharField(max_length=5)
+   
+
+
+class StarlineTime(models.Model):
+   Hour_Choice=(
+      ('10 AM','10 AM'),
+      ('11 AM','11 AM'),
+      ('12 PM','12 PM'),
+      ('01 PM','01 PM'),
+      ('02 PM','02 PM'),
+      ('03 PM','03 PM'),
+      ('04 PM','04 PM'),
+      ('05 PM','05 PM'),
+      ('06 PM','06 PM'),
+      ('07 PM','07 PM'),
+      ('08 PM','08 PM'),
+      ('09 PM','09 PM'),
+      ('10 PM','10 PM'),
+      
+   )
+   title=models.CharField(max_length=100, choices=Hour_Choice)
+   Open_Time=models.CharField(max_length=5)
+   
+class GaliDisawarTime(models.Model):
+   Hour_Choice=(
+      ('Disawar','Disawar'),
+      ('Faridabaad','Faridabaad'),
+      ('Gaziabaad','Gaziabaad'),
+      ('Gali','Gali'),
+      
+   )
+   title=models.CharField(max_length=100, choices=Hour_Choice)
+   Open_Time=models.CharField(max_length=5)
+    
 
 class Milan_MorningSingleDigit(models.Model):
      user = models.ForeignKey(User,on_delete=models.CASCADE)
