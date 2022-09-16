@@ -6,12 +6,6 @@
   {%if user.is_authenticated%}
   <div class="heading">Hello {{user.first_name}}</div>
   {%endif%}
-  <div class="btnleft">
-    <a href="{%url 'starline'%}" class="btn">Starline</a>
-  </div>
-  <div class="btnright">
-    <a href="{%url 'galidiswar'%}" class="btn">Gali Disawar</a>
-  </div>
   <a href="{%url 'wallet'%}">
     <img src="{% static 'images/wallet.svg'%}" >
   </a>
@@ -105,8 +99,8 @@
 
     .my {
       background-color: green;
-      padding: 6px;
-      border: 5px solid blue;
+      padding: 11px;
+      font-style:bold;
       float: Right;
       cursor: pointer;
       font-size: 13px;
@@ -212,7 +206,38 @@
 
       font-size: 25px;
     }
+
+    .twobtn{
+      padding: 0 30px;
+      width: auto;
+      height: 70px;
+      display: flex;
+      background-color: white;
+      align-items: center;
+      justify-content: space-between;
+
+    }
+
+    .btns {
+      background-color:blue;
+      padding: 6px;
+      border: 5px solid crimson;
+      cursor: pointer;
+      font-size: 13px;
+      border-radius: 10px;
+      color: white;
+    
+      
+    }
   </style>
+  <div class="twobtn">
+  <div class="btnleft">
+    <a href="{%url 'starline'%}" class="btns">Starline</a>
+  </div>
+  <div class="btnright">
+    <a href="{%url 'galidiswar'%}" class="btns">Gali Disawar</a>
+  </div>
+</div>
   <div class="left text-center">
     <h3>MILAN MORNING</h3>
     {% if number%}

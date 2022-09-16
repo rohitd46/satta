@@ -72,9 +72,6 @@ def logout(request):
     auth.logout(request)
     return redirect('login')
 
-
-
-
 def ForgetPassword(request):
     if request.method=="POST":
         username=request.POST.get('username')
@@ -85,12 +82,8 @@ def ForgetPassword(request):
         
         user=User.objects.get(username=username)
         token=str(uuid.uuid4())
-        print(user)
-        print(token)
         profile_obj=Profile.objects.get(user=user)
         profile_obj.forget_password_token=token
-        print(user)
-        print(token)
         profile_obj.save()
         print(user.email)
         send_forget_password_mail(user.email,token)
@@ -201,7 +194,7 @@ def ADDPOINT(request):
         amount=int(request.POST.get('amount'))*100
         print(amount,user)
      
-        client=razorpay.Client(auth=("rzp_test_Q4FD3QJBqaCd1a" ,"x0ZF9dfmlSEFtC7wwzEc9J4j"))
+        client=razorpay.Client(auth=("rzp_test_0bMnppZkcH5iNA" ,"0AcheZdJJKGpYl3MaJvrdOyD"))
         payment=client.order.create({'amount' :amount,'currency': 'INR','payment_capture':'1'})
         
         print(payment)

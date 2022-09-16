@@ -728,127 +728,652 @@ class Madhur_Night_FullSangamAdmin(admin.ModelAdmin):
     list_per_page= 10                   
 admin.site.register(Madhur_Night_FullSangam,Madhur_Night_FullSangamAdmin)
 
-admin.site.register(New_Main_Mumbai_SingleDigit)
-admin.site.register(New_Main_Mumbai_JodiDigit)
-admin.site.register(New_Main_Mumbai_SinglePana)
-admin.site.register(New_Main_Mumbai_DoublePana)
-admin.site.register(New_Main_Mumbai_TriplePana)
-admin.site.register(New_Main_Mumbai_HalfSangam)
-admin.site.register(New_Main_Mumbai_FullSangam)
 
-admin.site.register(Supreme_Night_SingleDigit)
-admin.site.register(Supreme_Night_JodiDigit)
-admin.site.register(Supreme_Night_SinglePana)
-admin.site.register(Supreme_Night_DoublePana)
-admin.site.register(Supreme_Night_TriplePana)
-admin.site.register(Supreme_Night_HalfSangam)
-admin.site.register(Supreme_Night_FullSangam)
+class New_Main_Mumbai_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10          
+admin.site.register(New_Main_Mumbai_SingleDigit,New_Main_Mumbai_SingleDigitAdmin)
 
-admin.site.register(Milan_Night_SingleDigit)
-admin.site.register(Milan_Night_JodiDigit)
-admin.site.register(Milan_Night_SinglePana)
-admin.site.register(Milan_Night_DoublePana)
-admin.site.register(Milan_Night_TriplePana)
-admin.site.register(Milan_Night_HalfSangam)
-admin.site.register(Milan_Night_FullSangam)
+class New_Main_Mumbai_JodiDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(New_Main_Mumbai_JodiDigit,New_Main_Mumbai_JodiDigitAdmin)
 
-admin.site.register(Kalyan_Night_SingleDigit)
-admin.site.register(Kalyan_Night_JodiDigit)
-admin.site.register(Kalyan_Night_SinglePana)
-admin.site.register(Kalyan_Night_DoublePana)
-admin.site.register(Kalyan_Night_TriplePana)
-admin.site.register(Kalyan_Night_HalfSangam)
-admin.site.register(Kalyan_Night_FullSangam)
+class New_Main_Mumbai_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(New_Main_Mumbai_SinglePana,New_Main_Mumbai_SinglePanaAdmin)
 
-admin.site.register(Rajdhani_Night_SingleDigit)
-admin.site.register(Rajdhani_Night_JodiDigit)
-admin.site.register(Rajdhani_Night_SinglePana)
-admin.site.register(Rajdhani_Night_DoublePana)
-admin.site.register(Rajdhani_Night_TriplePana)
-admin.site.register(Rajdhani_Night_HalfSangam)
-admin.site.register(Rajdhani_Night_FullSangam)
+class New_Main_Mumbai_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(New_Main_Mumbai_DoublePana,New_Main_Mumbai_DoublePanaAdmin)
 
-admin.site.register(Main_Bazar_SingleDigit)
-admin.site.register(Main_Bazar_JodiDigit)
-admin.site.register(Main_Bazar_SinglePana)
-admin.site.register(Main_Bazar_DoublePana)
-admin.site.register(Main_Bazar_TriplePana)
-admin.site.register(Main_Bazar_HalfSangam)
-admin.site.register(Main_Bazar_FullSangam)
+class New_Main_Mumbai_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(New_Main_Mumbai_TriplePana,New_Main_Mumbai_TriplePanaAdmin)
 
-admin.site.register(Ten_AM_SingleDigit)
-admin.site.register(Ten_AM_SinglePana)
-admin.site.register(Ten_AM_DoublePana)
-admin.site.register(Ten_AM_TriplePana)
+class New_Main_Mumbai_HalfSangamAdmin(admin.ModelAdmin):
+    list_display=('user','date','open_digit','close_pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10          
+admin.site.register(New_Main_Mumbai_HalfSangam,New_Main_Mumbai_HalfSangamAdmin)
 
-admin.site.register(Eleven_AM_SingleDigit)
-admin.site.register(Eleven_AM_SinglePana)
-admin.site.register(Eleven_AM_DoublePana)
-admin.site.register(Eleven_AM_TriplePana)
+class New_Main_Mumbai_FullSangamAdmin(admin.ModelAdmin):
+    list_display=('user','date','open_pana','close_pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10          
+admin.site.register(New_Main_Mumbai_FullSangam,New_Main_Mumbai_FullSangamAdmin)
 
-admin.site.register(Twelve_PM_SingleDigit)
-admin.site.register(Twelve_PM_SinglePana)
-admin.site.register(Twelve_PM_DoublePana)
-admin.site.register(Twelve_PM_TriplePana)
+class Supreme_Night_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Supreme_Night_SingleDigit,Supreme_Night_SingleDigitAdmin)
 
-admin.site.register(One_PM_SingleDigit)
-admin.site.register(One_PM_SinglePana)
-admin.site.register(One_PM_DoublePana)
-admin.site.register(One_PM_TriplePana)
+class Supreme_Night_JodiDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Supreme_Night_JodiDigit,Supreme_Night_JodiDigitAdmin)
 
-admin.site.register(Two_PM_SingleDigit)
-admin.site.register(Two_PM_SinglePana)
-admin.site.register(Two_PM_DoublePana)
-admin.site.register(Two_PM_TriplePana)
+class Supreme_Night_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Supreme_Night_SinglePana,Supreme_Night_SinglePanaAdmin)
 
-admin.site.register(Three_PM_SingleDigit)
-admin.site.register(Three_PM_SinglePana)
-admin.site.register(Three_PM_DoublePana)
-admin.site.register(Three_PM_TriplePana)
+class Supreme_Night_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Supreme_Night_DoublePana,Supreme_Night_DoublePanaAdmin)
 
-admin.site.register(Four_PM_SingleDigit)
-admin.site.register(Four_PM_SinglePana)
-admin.site.register(Four_PM_DoublePana)
-admin.site.register(Four_PM_TriplePana)
+class Supreme_Night_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Supreme_Night_TriplePana,Supreme_Night_TriplePanaAdmin)
 
-admin.site.register(Five_PM_SingleDigit)
-admin.site.register(Five_PM_SinglePana)
-admin.site.register(Five_PM_DoublePana)
-admin.site.register(Five_PM_TriplePana)
+class Supreme_Night_HalfSangamAdmin(admin.ModelAdmin):
+    list_display=('user','date','open_digit','close_pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10          
+admin.site.register(Supreme_Night_HalfSangam,Supreme_Night_HalfSangamAdmin)
 
-admin.site.register(Six_PM_SingleDigit)
-admin.site.register(Six_PM_SinglePana)
-admin.site.register(Six_PM_DoublePana)
-admin.site.register(Six_PM_TriplePana)
+class Supreme_Night_FullSangamAdmin(admin.ModelAdmin):
+    list_display=('user','date','open_pana','close_pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Supreme_Night_FullSangam,Supreme_Night_FullSangamAdmin)
 
-admin.site.register(Seven_PM_SingleDigit)
-admin.site.register(Seven_PM_SinglePana)
-admin.site.register(Seven_PM_DoublePana)
-admin.site.register(Seven_PM_TriplePana)
+
+class Milan_Night_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Milan_Night_SingleDigit,Milan_Night_SingleDigitAdmin)
+
+class Milan_Night_JodiDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Milan_Night_JodiDigit,Milan_Night_JodiDigitAdmin)
+
+class Milan_Night_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Milan_Night_SinglePana,Milan_Night_SinglePanaAdmin)
+
+class Milan_Night_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Milan_Night_DoublePana,Milan_Night_DoublePanaAdmin)
+
+class Milan_Night_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10          
+admin.site.register(Milan_Night_TriplePana,Milan_Night_TriplePanaAdmin)
+
+class Milan_Night_HalfSangamAdmin(admin.ModelAdmin):
+    list_display=('user','date','open_digit','close_pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10          
+admin.site.register(Milan_Night_HalfSangam,Milan_Night_HalfSangamAdmin)
+
+class Milan_Night_FullSangamAdmin(admin.ModelAdmin):
+    list_display=('user','date','open_pana','close_pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10          
+admin.site.register(Milan_Night_FullSangam,Milan_Night_FullSangamAdmin)
+
+class Kalyan_Night_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Kalyan_Night_SingleDigit,Kalyan_Night_SingleDigitAdmin)
+
+class Kalyan_Night_JodiDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Kalyan_Night_JodiDigit,Kalyan_Night_JodiDigitAdmin)
+
+class Kalyan_Night_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Kalyan_Night_SinglePana,Kalyan_Night_SinglePanaAdmin)
+
+class Kalyan_Night_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Kalyan_Night_DoublePana,Kalyan_Night_DoublePanaAdmin)
+
+class Kalyan_Night_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Kalyan_Night_TriplePana,Kalyan_Night_TriplePanaAdmin)
+
+class Kalyan_Night_HalfSangamAdmin(admin.ModelAdmin):
+    list_display=('user','date','open_digit','close_pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10          
+admin.site.register(Kalyan_Night_HalfSangam,Kalyan_Night_HalfSangamAdmin)
+
+class Kalyan_Night_FullSangamAdmin(admin.ModelAdmin):
+    list_display=('user','date','open_pana','close_pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10          
+admin.site.register(Kalyan_Night_FullSangam,Kalyan_Night_FullSangamAdmin)
+
+class Rajdhani_Night_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Rajdhani_Night_SingleDigit,Rajdhani_Night_SingleDigitAdmin)
+
+class Rajdhani_Night_JodiDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Rajdhani_Night_JodiDigit,Rajdhani_Night_JodiDigitAdmin)
+
+class Rajdhani_Night_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Rajdhani_Night_SinglePana,Rajdhani_Night_SinglePanaAdmin)
+
+class Rajdhani_Night_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Rajdhani_Night_DoublePana,Rajdhani_Night_DoublePanaAdmin)
+class Rajdhani_Night_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Rajdhani_Night_TriplePana,Rajdhani_Night_TriplePanaAdmin)
+
+class Rajdhani_Night_HalfSangamAdmin(admin.ModelAdmin):
+    list_display=('user','date','open_digit','close_pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10          
+admin.site.register(Rajdhani_Night_HalfSangam,Rajdhani_Night_HalfSangamAdmin)
+class Rajdhani_Night_FullSangamAdmin(admin.ModelAdmin):
+    list_display=('user','date','open_pana','close_pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10          
+admin.site.register(Rajdhani_Night_FullSangam,Rajdhani_Night_FullSangamAdmin)
+
+class Main_Bazar_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Main_Bazar_SingleDigit,Main_Bazar_SingleDigitAdmin)
+
+class Main_Bazar_JodiDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Main_Bazar_JodiDigit,Main_Bazar_JodiDigitAdmin)
+class Main_Bazar_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Main_Bazar_SinglePana,Main_Bazar_SinglePanaAdmin)
+
+class Main_Bazar_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Main_Bazar_DoublePana,Main_Bazar_DoublePanaAdmin)
+class Main_Bazar_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Main_Bazar_TriplePana,Main_Bazar_TriplePanaAdmin)
+class Main_Bazar_HalfSangamAdmin(admin.ModelAdmin):
+    list_display=('user','date','open_digit','close_pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10          
+admin.site.register(Main_Bazar_HalfSangam, Main_Bazar_HalfSangamAdmin)
+
+class Main_Bazar_FullSangamAdmin(admin.ModelAdmin):
+    list_display=('user','date','open_pana','close_pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10          
+admin.site.register(Main_Bazar_FullSangam,Main_Bazar_FullSangamAdmin)
+
+class Ten_AM_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Ten_AM_SingleDigit,Ten_AM_SingleDigitAdmin)
+class Ten_AM_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Ten_AM_SinglePana,Ten_AM_SinglePanaAdmin)
+class Ten_AM_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Ten_AM_DoublePana,Ten_AM_DoublePanaAdmin)
+class Ten_AM_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Ten_AM_TriplePana,Ten_AM_TriplePanaAdmin)
+
+class Eleven_AM_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Eleven_AM_SingleDigit,Eleven_AM_SingleDigitAdmin)
+class Eleven_AM_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Eleven_AM_SinglePana,Eleven_AM_SinglePanaAdmin)
+class Eleven_AM_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Eleven_AM_DoublePana,Eleven_AM_DoublePanaAdmin)
+class Eleven_AM_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Eleven_AM_TriplePana, Eleven_AM_TriplePanaAdmin)
+
+class Twelve_PM_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Twelve_PM_SingleDigit,Twelve_PM_SingleDigitAdmin)
+class Twelve_PM_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Twelve_PM_SinglePana,Twelve_PM_SinglePanaAdmin)
+class Twelve_PM_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Twelve_PM_DoublePana,Twelve_PM_DoublePanaAdmin)
+class Twelve_PM_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Twelve_PM_TriplePana,Twelve_PM_TriplePanaAdmin)
+
+class One_PM_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(One_PM_SingleDigit,One_PM_SingleDigitAdmin)
+class One_PM_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(One_PM_SinglePana, One_PM_SinglePanaAdmin)
+class One_PM_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(One_PM_DoublePana, One_PM_DoublePanaAdmin)
+class One_PM_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(One_PM_TriplePana,One_PM_TriplePanaAdmin)
+
+class Two_PM_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Two_PM_SingleDigit,Two_PM_SingleDigitAdmin)
+
+class Two_PM_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Two_PM_SinglePana,Two_PM_SinglePanaAdmin)
+class Two_PM_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Two_PM_DoublePana,Two_PM_DoublePanaAdmin)
+
+class Two_PM_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Two_PM_TriplePana,Two_PM_TriplePanaAdmin)
+
+class Three_PM_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Three_PM_SingleDigit,Three_PM_SingleDigitAdmin)
+
+class Three_PM_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Three_PM_SinglePana,Three_PM_SinglePanaAdmin)
+class Three_PM_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Three_PM_DoublePana,Three_PM_DoublePanaAdmin)
+class Three_PM_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Three_PM_TriplePana,Three_PM_TriplePanaAdmin)
+
+class Four_PM_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Four_PM_SingleDigit,Four_PM_SingleDigitAdmin)
+class Four_PM_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Four_PM_SinglePana,Four_PM_SinglePanaAdmin)
+class Four_PM_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Four_PM_DoublePana,Four_PM_DoublePanaAdmin)
+class Four_PM_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Four_PM_TriplePana,Four_PM_TriplePanaAdmin)
+
+class Five_PM_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Five_PM_SingleDigit,Five_PM_SingleDigitAdmin)
+class Five_PM_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Five_PM_SinglePana, Five_PM_SinglePanaAdmin)
+class Five_PM_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Five_PM_DoublePana,Five_PM_DoublePanaAdmin)
+class Five_PM_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Five_PM_TriplePana,Five_PM_TriplePanaAdmin)
+
+class Six_PM_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Six_PM_SingleDigit,Six_PM_SingleDigitAdmin)
+class Six_PM_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Six_PM_SinglePana,Six_PM_SinglePanaAdmin)
+class Six_PM_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Six_PM_DoublePana,Six_PM_DoublePanaAdmin)
+class Six_PM_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Six_PM_TriplePana,Six_PM_TriplePanaAdmin)
+
+class Seven_PM_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Seven_PM_SingleDigit,Seven_PM_SingleDigitAdmin)
+class Seven_PM_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Seven_PM_SinglePana,Seven_PM_SinglePanaAdmin)
+class Seven_PM_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Seven_PM_DoublePana,Seven_PM_DoublePanaAdmin)
+class Seven_PM_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Seven_PM_TriplePana,Seven_PM_TriplePanaAdmin)
 
 class Enight_PM_DoublePanaAdmin(admin.ModelAdmin):
     list_display=('user','date','pana','points' )
     search_fields=('date', )
     list_filter=('date',)
     list_per_page= 10
-    
+admin.site.register(Eight_PM_DoublePana,Enight_PM_DoublePanaAdmin)    
+class Eight_PM_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Eight_PM_SingleDigit,Eight_PM_SingleDigitAdmin)
 
-admin.site.register(Eight_PM_SingleDigit)
-admin.site.register(Eight_PM_SinglePana)
-admin.site.register(Eight_PM_DoublePana,Enight_PM_DoublePanaAdmin)
-admin.site.register(Eight_PM_TriplePana)
+class Eight_PM_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Eight_PM_SinglePana,Eight_PM_SinglePanaAdmin)
 
-admin.site.register(Nine_PM_SingleDigit)
-admin.site.register(Nine_PM_SinglePana)
-admin.site.register(Nine_PM_DoublePana)
-admin.site.register(Nine_PM_TriplePana)
+class Eight_PM_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Eight_PM_TriplePana,Eight_PM_TriplePanaAdmin)
 
-admin.site.register(Ten_PM_SingleDigit)
-admin.site.register(Ten_PM_SinglePana)
-admin.site.register(Ten_PM_DoublePana)
-admin.site.register(Ten_PM_TriplePana)
+class Nine_PM_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Nine_PM_SingleDigit,Nine_PM_SingleDigitAdmin)
 
-admin.site.register(Gali)
-admin.site.register(Disawar)
-admin.site.register(Faridabaad)
-admin.site.register(Gaziabaad)
+class Nine_PM_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Nine_PM_SinglePana,Nine_PM_SinglePanaAdmin)
+
+class Nine_PM_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Nine_PM_DoublePana,Nine_PM_DoublePanaAdmin)
+
+class Nine_PM_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Nine_PM_TriplePana,Nine_PM_TriplePanaAdmin)
+class Ten_PM_SingleDigitAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Ten_PM_SingleDigit,Ten_PM_SingleDigitAdmin)
+class Ten_PM_SinglePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Ten_PM_SinglePana,Ten_PM_SinglePanaAdmin)
+class Ten_PM_DoublePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Ten_PM_DoublePana,Ten_PM_DoublePanaAdmin)
+class Ten_PM_TriplePanaAdmin(admin.ModelAdmin):
+    list_display=('user','date','pana','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Ten_PM_TriplePana,Ten_PM_TriplePanaAdmin)
+
+class GaliAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Gali,GaliAdmin)
+
+class DisawarAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Disawar,DisawarAdmin)
+class FaridabaadAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Faridabaad,FaridabaadAdmin)
+
+class GaziabaadAdmin(admin.ModelAdmin):
+    list_display=('user','date','digit','points' )
+    search_fields=('date', )
+    list_filter=('date',)
+    list_per_page= 10
+admin.site.register(Gaziabaad,GaziabaadAdmin)
