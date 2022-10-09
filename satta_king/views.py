@@ -163,9 +163,11 @@ def Winning(request):
     return render (request,'winning_history.html')
 
 def BID(request):
-        data=User.objects.filter(id=18)
+        data=Kalyan_DoublePana.objects.filter(user=request.user).order_by('-date')
+        data2=Kalyan_SinglePana.objects.filter(user=request.user).order_by('-date')
         context={  
-            'data': data
+            'data': data,
+            'data2':data2
             
         }  
         return render (request,'bid_history.html',context)

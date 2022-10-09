@@ -130,25 +130,21 @@
 
     <table>
       <tr>
-        <th>First</th>
         <th>Date</th>
         <th>Points</th>
         <th>Bazar</th>
       </tr>
       <tr>
-        {%if user.first_name%}
         
         {%for i in data%}
-        {%if id == user_id%}
-        <td>{{i.first_name}}</td>
-        <td>{{p.date}}</td>
-        <td>{{p.points}}</td>
+        <td>{{i.date}}</td>
+        <td>{{i.points}}</td>
         <td>Milan Morning</td>
       </tr>
-      {% endif %}
+    
       {% endfor %}
-      
-      {% endif %}
+     
+
       
     </table>
       
