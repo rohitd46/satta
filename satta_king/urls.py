@@ -23,7 +23,7 @@ urlpatterns = [
       path('resetpassword/<token>/', views.ResetPassword,name='resetpassword'),
       path('howtoplay', views.HowToPlay,name='howtoplay'),
       path('add_point', views.ADDPOINT,name='addpoint'),
-      path('success', views.Success,name='success'),
+      path('handlerrequest', views.handlerrequest,name='handlerrequest'),
       path('starline', views.STARLINE,name='starline'),
       path('galidiswar', views.GALIDISWAR,name='galidiswar'),
       # MILAN MORNING

@@ -153,6 +153,7 @@ class StarlineTime(models.Model):
    )
    title=models.CharField(max_length=100, choices=Hour_Choice)
    Open_Time=models.CharField(max_length=5)
+   Close_Time=models.CharField(max_length=8)
    
 class GaliDisawarTime(models.Model):
    Hour_Choice=(
@@ -164,7 +165,7 @@ class GaliDisawarTime(models.Model):
    )
    title=models.CharField(max_length=100, choices=Hour_Choice)
    Open_Time=models.CharField(max_length=5)
-    
+   Close_Time=models.CharField(max_length=8)
 
 class Milan_MorningSingleDigit(models.Model):
      user = models.ForeignKey(User,on_delete=models.CASCADE)

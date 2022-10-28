@@ -6,7 +6,7 @@ from django.contrib.auth.models import User,auth
 from django.contrib.auth.decorators import login_required
 from datetime import date, datetime
 from .models import *
-import razorpay
+from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.contrib.auth.forms import PasswordChangeForm
@@ -14,7 +14,6 @@ from django.contrib.auth import update_session_auth_hash
 from .helpes import send_forget_password_mail
 import uuid
 
-import time
 
 
 
@@ -202,18 +201,28 @@ def ADDPOINT(request):
     if request.method=="POST":
         user=request.user
         amount=int(request.POST.get('amount'))*100
-        print(amount,user)
-        client=razorpay.Client(auth=("rzp_test_WYJiWly9dl8E6t" ,"z5S2phbuGWzBTghHxk8GqBjz"))
-        payment=client.order.create({'amount' :amount,'currency': 'INR','payment_capture':'1'})
-        return render (request,'add_point.html',{'payment': payment})
+#         print(amount,user)
+#         data_dict = {
+#             'MID':'WorldP64425807474247',
+#             'ORDER_ID':'dddgfgfeeed',
+#             'TXN_AMOUNT':'1',
+#             'CUST_ID':'acfff@paytm.com',
+#             'INDUSTRY_TYPE_ID':'Retail',
+#             'WEBSITE':'worldpressplg',
+#             'CHANNEL_ID':'WEB',
+# 	    #'CALLBACK_URL':'http://localhost/pythonKit/response.cgi',
+#         }
+
+
+# param_dict = data_dict  
+#         return render (request,'add_point.html')
+       
        
     return render (request,'add_point.html')
 
-def Success(request):
-    if request.method=="POST":
-        a=request.POST
-        print(a)
-    return render (request,"success.html")
+@csrf_exempt
+def handlerrequest(request):
+  pass
 
 def STARLINE(request):
     number=Starline.objects.all()

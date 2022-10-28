@@ -894,32 +894,31 @@
 
 <!-- Checking time using js -->
   <script>
-    var startTime = document.getElementById("open_time1").innerHTML;
-    console.log(startTime);
     for (let i = 1; i < 21 ; i++){
     
-    var btn=document.getElementById("btn"+i);
-    console.log(btn)
-    var dt = new Date();//current Date that gives us current Time also
-        var startTime = document.getElementById("open_time"+i).innerHTML;
-        var endTime = document.getElementById("close_time"+i).innerHTML;
-        
-        var s = startTime.split(':');
-        var dt1 = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate(),
-        parseInt(s[0]), parseInt(s[1]));
-        var e = endTime.split(':');
-        var dt2 = new Date(dt.getFullYear(), dt.getMonth(),
-        dt.getDate(), parseInt(e[0]), parseInt(e[1]));
-            if(dt >= dt1 && dt <= dt2){     
-              btn.classList.remove("close");
-            }
-            else{
-              btn.classList.toggle("close")
-              btn.innerHTML="close"
-            }
-    }
-  </script>
-
+      var btn=document.getElementById("btn"+i);
+      console.log(btn)
+      var dt = new Date();//current Date that gives us current Time also
+          var startTime = document.getElementById("open_time"+i).innerHTML;
+          var endTime = document.getElementById("close_time"+i).innerHTML;
+          
+          var s = startTime.split(':');
+          var dt1 = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate(),
+          parseInt(s[0]), parseInt(s[1]));
+          var e = endTime.split(':');
+          var dt2 = new Date(dt.getFullYear(), dt.getMonth(),
+          dt.getDate(), parseInt(e[0]), parseInt(e[1]));
+              if(dt >= dt1 && dt <= dt2){     
+                btn.classList.remove("close");
+              }
+              else{
+                btn.classList.toggle("close")
+                btn.innerHTML="close"
+              }
+      }
+    </script>
+  
+  
 
 
 

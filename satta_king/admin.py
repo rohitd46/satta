@@ -38,13 +38,13 @@ class GaliDisawarAdmin(admin.ModelAdmin):
 admin.site.register(GaliDisawar,GaliDisawarAdmin)
 
 class StarlineTimeAdmin(admin.ModelAdmin):
-    list_display=( 'title','Open_Time')
+    list_display=( 'title','Open_Time','Close_Time')
     list_filter=('title',)
     search_fields=('title', )
 admin.site.register(StarlineTime,StarlineTimeAdmin)
 
 class GaliDisawarTimeAdmin(admin.ModelAdmin):
-    list_display=( 'title','Open_Time')
+    list_display=( 'title','Open_Time','Close_Time')
     list_filter=('title',)
     search_fields=('title', )
 admin.site.register(GaliDisawarTime,GaliDisawarTimeAdmin)
