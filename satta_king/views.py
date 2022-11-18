@@ -201,24 +201,23 @@ def ADDPOINT(request):
     if request.method=="POST":
         user=request.user
         amount=int(request.POST.get('amount'))*100
-#         print(amount,user)
-#         data_dict = {
-#             'MID':'WorldP64425807474247',
-#             'ORDER_ID':'dddgfgfeeed',
-#             'TXN_AMOUNT':'1',
-#             'CUST_ID':'acfff@paytm.com',
-#             'INDUSTRY_TYPE_ID':'Retail',
-#             'WEBSITE':'worldpressplg',
-#             'CHANNEL_ID':'WEB',
-# 	    #'CALLBACK_URL':'http://localhost/pythonKit/response.cgi',
-#         }
+        param_dict={
 
+            'MID': 'Your_merchant_id',
+            'ORDER_ID': 'order.order_id',
+            'TXN_AMOUNT': '1',
+            'CUST_ID': 'your_email',
+            'INDUSTRY_TYPE_ID': 'Retail',
+            'WEBSITE': 'WEBSTAGING',
+            'CHANNEL_ID': 'WEB',
+            'CALLBACK_URL':'http://127.0.0.1:8000/your_app/handlepayment/',
 
-# param_dict = data_dict  
-#         return render (request,'add_point.html')
+    }
+        # return  render(request, 'paytm.html', {'param_dict': param_dict})
+    return render(request, 'add_point.html')
+
        
-       
-    return render (request,'add_point.html')
+   
 
 @csrf_exempt
 def handlerrequest(request):
