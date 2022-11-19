@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-tad41mz)5s#1@&no7j%m&@vdmp(nrm22u5no4b6435g3vekryw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -141,13 +141,13 @@ EMAIL_HOST_USER= "onlinesattaking83@gmail.com"
 EMAIL_HOST_PASSWORD = 'iinctrpnintoxsul'
 EMAIL_USE_TLS =True 
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
 
-SECURE_HSTS_SECONDS = 31536000 # 1 year
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_SECONDS = 31536000 # 1 year
+# SECURE_HSTS_PRELOAD = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
